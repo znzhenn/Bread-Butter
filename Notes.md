@@ -67,6 +67,8 @@ This file tracks progress, milestones, major changes in development, as well as 
 
 
 ## Week 3 (2/10 - 2/16)
+- Bread-Butter Unity Project Restarted
+- GitHub Repo streamlined as intended VCS
 - [How to Create 2D Sprites & Import them into Unity](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [How to make 2D game art!](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [Beginnrs Guide to Creating Realistic Graphics](https://www.youtube.com/watch?v=fBQvL5YR3eg)
