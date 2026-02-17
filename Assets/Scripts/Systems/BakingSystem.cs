@@ -1,12 +1,36 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BakingSystem : MonoBehaviour
 {
     public DisplaySystem displaySystem;
+    private PlayerInputActions inputActions;
+
+    private void Awake()
+    {
+        inputActions = new PlayerInputActions();
+    }
+
+    private void OnEnable()
+    {
+        inputActions.Gameplay.Enable();
+        inputActions.Gameplay.Bake.performed += OnBake;
+    }
+
+    private void OnDisable()
+    {
+        inputActions.Gameplay.Bake.performed -= OnBake;
+        inputActions.Gameplay.Disable();
+    }
+
+    private void OnBake(InputAction.CallbackContext context)
+    {
+        BakeBread();
+    }
 
     public void BakeBread()
     {
-        if (GameManager.Instance.CurrentState!= GameManager.GameState.EndDay)
+        if (GameManager.Instance.CurrentState == GameManager.GameState.EndDay)
         {
             return; // no baking at the end of the day
         }
@@ -17,13 +41,6 @@ public class BakingSystem : MonoBehaviour
         displaySystem.AddBread(bread);
         //prints what bread is added
             
-    }
-
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space)){
-            BakeBread();
-        }
     }
 
 }
