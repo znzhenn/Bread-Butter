@@ -18,55 +18,6 @@ This file tracks progress, milestones, major changes in development, as well as 
 
 
 ## Week 3 (2/10 - 2/16)
-- changes
-- 
-- 
-- 
-- 
-
-
-## Week 4 (2/17 - 2/23)
-- changes
-- 
-- 
-- 
-- 
-
-
-
-## Week ()
-- changes
-- 
-- 
-- 
-- 
-
-
-## Week ()
-- changes
-- 
-- 
-- 
-- # 🍞 Bread & Butter — Notes/DevLog: Project Updates
-
-This file tracks progress, milestones, major changes in development, as well as an additional research or resources utilized.
-
-## Week 1 (1/27 - 2/2)
-- Capstone Project Idea finalized
-- Github Repo for Butter created
-- README file created
-- Game Design Document file created
-
-
-## Week 2 (2/3-2/9)
-- Unity Project created
-- Basic Game Loop Implemented
-- Learned howt to create scipts, objects, and dbug in C#
-- [How to Create a C# ilee](https://www.youtube.com/watch?v=C8vqAkUCJBg)
-- [Unity Tutorial for Complete Beginners](https://www.youtube.com/watch?v=XtQMytORBmM&t=1079s)
-
-
-## Week 3 (2/10 - 2/16)
 - Bread-Butter Unity Project Restarted
 - GitHub Repo streamlined as intended VCS
 - [How to Create 2D Sprites & Import them into Unity](https://www.youtube.com/watch?v=bKgi6WcXtCY)
@@ -89,6 +40,7 @@ dev branch:
 - new repo update and stable main branch: small and basic, just that it works
 
 
+
 ## Week 4 (2/17 - 2/23)
 - changes
 - 
@@ -98,7 +50,7 @@ dev branch:
 
 
 
-## Week ()
+## Week 5 ()
 - changes
 - 
 - 
@@ -106,9 +58,85 @@ dev branch:
 - 
 
 
-## Week ()
+## Week 6 ()
 - changes
 - 
 - 
 - 
 - 
+
+## Week 7 ()
+- changes
+- 
+- 
+- 
+- 
+
+
+## Week 8 ()
+- changes
+- 
+- 
+- 
+-
+
+## Week 9 ()
+- changes
+- 
+- 
+- 
+- 
+
+
+## Week 10 ()
+- changes
+- 
+- 
+- 
+-
+
+
+## Week 11 ()
+- changes
+- 
+- 
+- 
+- 
+
+
+## Week 12 ()
+- changes
+- 
+- 
+- 
+-
+
+## Week 13 ()
+- changes
+- 
+- 
+- 
+- 
+
+
+## Week 14 ()
+- changes
+- 
+- 
+- 
+-
+
+## Week 15 ()
+- changes
+- 
+- 
+- 
+- 
+
+
+## Week 16 ()
+- changes
+- 
+- 
+- 
+-
