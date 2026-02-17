@@ -1,6 +1,11 @@
 # 🍞 Bread & Butter — Notes/DevLog: Project Updates
 
-This file tracks progress, milestones, major changes in development, as well as an additional research or resources utilized.
+This file tracks progress, milestones, changes in development, as well as an additional research or resources utilized.
+
+**branch reminders**
+- main branch: most stable version of the code
+- development branch: system retainment
+- wip branch: exploration of specific features before merging into main
 
 ## Week 1 (1/27 - 2/2)
 - Capstone Project Idea finalized
@@ -20,6 +25,34 @@ This file tracks progress, milestones, major changes in development, as well as 
 ## Week 3 (2/10 - 2/16)
 - Bread-Butter Unity Project Restarted
 - GitHub Repo streamlined as intended VCS
+- **Baking System Finalized**
+    1. Player selects recipe
+    2. System checks required ingredients
+    4. Baking minigame starts (leaves space for more later)
+    5. Player presses button to stop timing bar
+    6. System calculates accuracy
+    7. Quality score is calculated
+    8. Bread object is created and placed in display inventory
+- **Starter Bread Options Selected**
+    - White Loaf
+    - Whole Wheat
+    - Baguette
+    - Sourdough
+- **Upgrade System**
+    1. Oven upgrade 
+        - Decreases the difficulty of baking bread
+        - Adding quality bonus
+    2. Display Upgrade
+        - Adds more slots to sell bread
+- **Reputation System (Hidden variable)**
+    - Increases based on:
+        - Number of different types of bread sold
+        - Average customer satisfaction
+        - Number of returning customers
+    - Affects:
+        - Customer spawn rate
+        - Chance of higher-paying customers
+        - Tips given by customers
 - [How to Create 2D Sprites & Import them into Unity](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [How to make 2D game art!](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [Beginnrs Guide to Creating Realistic Graphics](https://www.youtube.com/watch?v=fBQvL5YR3eg)
@@ -29,15 +62,6 @@ This file tracks progress, milestones, major changes in development, as well as 
 - finalize a toy implementation
 - finalize a list of objects, what their scripts should do
 - start drawing graphics?
-- restart repo/unity project (main and development branch and feature branch)
-get dev project working
-- main banch to launch unity project and it runs
-main branch:
-dev branch:
-- keeping my system (making suree that the main branch is the absolute most stable versoin of it)
-- explore specific featuyres here before merging into dev
-- next week:
-- new repo update and stable main branch: small and basic, just that it works
 
 
 
