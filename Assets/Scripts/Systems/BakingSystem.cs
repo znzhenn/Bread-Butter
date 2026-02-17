@@ -3,28 +3,29 @@ using UnityEngine.InputSystem;
 
 public class BakingSystem : MonoBehaviour
 {
+     private PlayerInputActions inputActions;
     public DisplaySystem displaySystem;
-    private PlayerInputActions inputActions;
-
+   
     private void Awake()
     {
         inputActions = new PlayerInputActions();
     }
 
-    private void OnEnable()
+    private void Start()
     {
+        inputActions.Gameplay.Bake.performed += ctx => BakeBread();
         inputActions.Gameplay.Enable();
-        inputActions.Gameplay.Bake.performed += OnBake;
     }
 
     private void OnDisable()
     {
-        inputActions.Gameplay.Bake.performed -= OnBake;
+        inputActions.Gameplay.Bake.performed -= ctx => BakeBread();
         inputActions.Gameplay.Disable();
     }
 
     private void OnBake(InputAction.CallbackContext context)
     {
+        if (GameManager.Instance == null || displaySystem == null) return;
         BakeBread();
     }
 
