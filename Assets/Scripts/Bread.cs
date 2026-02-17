@@ -1,16 +1,15 @@
 using UnityEngine;
 
-public class Bread : MonoBehaviour
+public class Bread
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public string breadName;
+    public int quality;
+    public int value;
 
-    // Update is called once per frame
-    void Update()
+    public Bread(string name, int quality, int value)
     {
-        
+        this.breadName = name;
+        this.quality = quality;
+        this.value = value;
     }
 }
