@@ -53,6 +53,7 @@ This file tracks progress, milestones, changes in development, as well as an add
         - Customer spawn rate
         - Chance of higher-paying customers
         - Tips given by customers
+- [How to set up a GameManager](https://discussions.unity.com/t/help-how-do-you-set-up-a-gamemanager/473071)
 - [How to Create 2D Sprites & Import them into Unity](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [How to make 2D game art!](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [Beginnrs Guide to Creating Realistic Graphics](https://www.youtube.com/watch?v=fBQvL5YR3eg)
