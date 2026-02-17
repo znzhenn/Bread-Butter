@@ -30,6 +30,11 @@ public class GameManager : MonoBehaviour
 
      private void Awake()
     {
+        if (Instance != null && Instance != this)
+    {
+        Destroy(gameObject);
+        return;
+    }
         Instance = this;
     }
 
@@ -59,7 +64,7 @@ public class GameManager : MonoBehaviour
 
     void StartDay()
     {
-        Debug.Log("Day " + Day);
+        Debug.Log("Starting Day " + Day + "!");
         ChangeState(GameState.OpenShop);
     
     }
@@ -68,6 +73,6 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log("End of Day " + Day);
         Day++;
-        ChangeState(GameState.StartDay);
+        //ChangeState(GameState.StartDay);
     }
 }
