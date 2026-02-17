@@ -48,7 +48,7 @@ public class GameManager : MonoBehaviour
     {
         CurrentState = GameState.StartDay;
         Debug.Log("Starting Day " + Day + "!");
-        OpenShop();
+        // wait for manual cycle to OpenShop();
     }
 
     private void OpenShop()
@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
         Debug.Log("The Shop is Open!");
     }
 
-    void EndDay()
+    public void EndDay()
     {
         Debug.Log("End of Day " + Day);
         Day++;

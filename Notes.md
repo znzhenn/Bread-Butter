@@ -16,7 +16,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 ## Week 2 (2/3-2/9)
 - Unity Project created
-- Basic Game Loop Implemented
+- A Game Loop Implemented
 - Learned howt to create scipts, objects, and dbug in C#
 - [How to Create a C# ilee](https://www.youtube.com/watch?v=C8vqAkUCJBg)
 - [Unity Tutorial for Complete Beginners](https://www.youtube.com/watch?v=XtQMytORBmM&t=1079s)
@@ -53,17 +53,14 @@ This file tracks progress, milestones, changes in development, as well as an add
         - Customer spawn rate
         - Chance of higher-paying customers
         - Tips given by customers
+- incredibly barebones implementation complete
+- GameManager, BakingSystem, and DisplaySystem Created
+- bread baking verified
+- Tested & verified the ability to bake bread
 - [How to set up a GameManager](https://discussions.unity.com/t/help-how-do-you-set-up-a-gamemanager/473071)
 - [How to Create 2D Sprites & Import them into Unity](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [How to make 2D game art!](https://www.youtube.com/watch?v=bKgi6WcXtCY)
 - [Beginnrs Guide to Creating Realistic Graphics](https://www.youtube.com/watch?v=fBQvL5YR3eg)
-
-**todo list**
-- research graphics in unity
-- finalize a toy implementation
-- finalize a list of objects, what their scripts should do
-- start drawing graphics?
-
 
 
 ## Week 4 (2/17 - 2/23)
@@ -73,7 +70,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 
-
+**to-do list**
 
 ## Week 5 ()
 - changes
@@ -81,7 +78,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 - 
-
+**to-do list**
 
 ## Week 6 ()
 - changes
@@ -89,6 +86,8 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 - 
+**to-do list**
+
 
 ## Week 7 ()
 - changes
@@ -97,6 +96,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 
+**to-do list**
+
+
 
 ## Week 8 ()
 - changes
@@ -104,6 +106,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 -
+**to-do list**
+
+
 
 ## Week 9 ()
 - changes
@@ -112,6 +117,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 
+**to-do list**
+
+
 
 ## Week 10 ()
 - changes
@@ -119,6 +127,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 -
+**to-do list**
+
+
 
 
 ## Week 11 ()
@@ -127,6 +138,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 - 
+**to-do list**
+
+
 
 
 ## Week 12 ()
@@ -135,13 +149,19 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 -
+**to-do list**
+
+
 
 ## Week 13 ()
 - changes
 - 
 - 
 - 
-- 
+- **to-do list**
+
+
+
 
 
 ## Week 14 ()
@@ -150,6 +170,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 -
+**to-do list**
+
+
 
 ## Week 15 ()
 - changes
@@ -157,6 +180,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 - 
+**to-do list**
+
+
 
 
 ## Week 16 ()
@@ -165,3 +191,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 -
+**to-do list**
+
+
