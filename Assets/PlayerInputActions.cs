@@ -118,6 +118,15 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""take bread"",
+                    ""type"": ""Button"",
+                    ""id"": ""148b39b7-bdda-4774-a9d4-df34d9b1fe49"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -175,6 +184,28 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
                     ""action"": ""cycle"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9d302d93-1ced-4125-9307-03c7b8e57fd0"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""take bread"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2be94961-1811-47b3-89b2-e65b1cd3ea17"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""take bread"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -186,6 +217,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         m_Gameplay_Bake = m_Gameplay.FindAction("Bake", throwIfNotFound: true);
         m_Gameplay_startnewday = m_Gameplay.FindAction("start new day", throwIfNotFound: true);
         m_Gameplay_cycle = m_Gameplay.FindAction("cycle", throwIfNotFound: true);
+        m_Gameplay_takebread = m_Gameplay.FindAction("take bread", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -269,6 +301,7 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Bake;
     private readonly InputAction m_Gameplay_startnewday;
     private readonly InputAction m_Gameplay_cycle;
+    private readonly InputAction m_Gameplay_takebread;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -292,6 +325,10 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Provides access to the underlying input action "Gameplay/cycle".
         /// </summary>
         public InputAction @cycle => m_Wrapper.m_Gameplay_cycle;
+        /// <summary>
+        /// Provides access to the underlying input action "Gameplay/takebread".
+        /// </summary>
+        public InputAction @takebread => m_Wrapper.m_Gameplay_takebread;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -327,6 +364,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @cycle.started += instance.OnCycle;
             @cycle.performed += instance.OnCycle;
             @cycle.canceled += instance.OnCycle;
+            @takebread.started += instance.OnTakebread;
+            @takebread.performed += instance.OnTakebread;
+            @takebread.canceled += instance.OnTakebread;
         }
 
         /// <summary>
@@ -347,6 +387,9 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
             @cycle.started -= instance.OnCycle;
             @cycle.performed -= instance.OnCycle;
             @cycle.canceled -= instance.OnCycle;
+            @takebread.started -= instance.OnTakebread;
+            @takebread.performed -= instance.OnTakebread;
+            @takebread.canceled -= instance.OnTakebread;
         }
 
         /// <summary>
@@ -408,5 +451,12 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnCycle(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "take bread" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnTakebread(InputAction.CallbackContext context);
     }
 }
