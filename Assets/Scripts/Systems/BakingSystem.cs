@@ -3,29 +3,28 @@ using UnityEngine.InputSystem;
 
 public class BakingSystem : MonoBehaviour
 {
-     private PlayerInputActions inputActions;
-    public DisplaySystem displaySystem;
-   
+    private DisplaySystem displaySystem;
+    private PlayerInputActions inputActions;
     private void Awake()
     {
+        displaySystem = DisplaySystem.Instance;
         inputActions = new PlayerInputActions();
     }
 
-    private void Start()
+    private void OnEnable()
     {
-        inputActions.Gameplay.Bake.performed += ctx => BakeBread();
         inputActions.Gameplay.Enable();
+        inputActions.Gameplay.Bake.performed += OnBake;
     }
 
     private void OnDisable()
     {
-        inputActions.Gameplay.Bake.performed -= ctx => BakeBread();
+        inputActions.Gameplay.Bake.performed -= OnBake;
         inputActions.Gameplay.Disable();
     }
 
     private void OnBake(InputAction.CallbackContext context)
     {
-        if (GameManager.Instance == null || displaySystem == null) return;
         BakeBread();
     }
 
@@ -36,11 +35,20 @@ public class BakingSystem : MonoBehaviour
             Debug.LogError("Display System is not assigned!");
             return;
         }
-        /*
-        if (GameManager.Instance.CurrentState == GameManager.GameState.EndDay)
-        {
-            return; // no baking at the end of the day
-        } */
+        
+        GameManager.GameState current = GameManager.Instance.CurrentState;
+    if (current != GameManager.GameState.StartDay && current != GameManager.GameState.OpenShop)
+    {
+        Debug.Log("Cannot bake right now! Wait until StartDay or OpenShop.");
+        return;
+    }
+
+    if (displaySystem.breadsOnDisplay.Count >= displaySystem.MaxSlots)
+    {
+        Debug.Log("Display is Already Full!");
+        return;
+    }
+
         int quality = Random.Range(50, 101);
         int value = quality/10;
 

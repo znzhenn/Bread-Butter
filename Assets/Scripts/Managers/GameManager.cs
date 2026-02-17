@@ -40,33 +40,21 @@ public class GameManager : MonoBehaviour
 
     private void Start() //start
     {
-      ChangeState(GameState.StartDay);
-    }
-
-    public void ChangeState(GameState newState){
-        CurrentState = newState;
-        switch (CurrentState)
-        {
-            case GameState.StartDay:
-                StartDay();
-                break;
-
-            case GameState.OpenShop:
-                Debug.Log("The Shop is Open!");
-                break;
-
-            case GameState.EndDay:
-                EndDay();
-                break;
-        }
+        StartNewDay();
 
     }
 
-    void StartDay()
+    public void StartNewDay()
     {
+        CurrentState = GameState.StartDay;
         Debug.Log("Starting Day " + Day + "!");
-        ChangeState(GameState.OpenShop);
-    
+        OpenShop();
+    }
+
+    private void OpenShop()
+    {
+        CurrentState = GameState.OpenShop;
+        Debug.Log("The Shop is Open!");
     }
 
     void EndDay()
@@ -74,5 +62,35 @@ public class GameManager : MonoBehaviour
         Debug.Log("End of Day " + Day);
         Day++;
         //ChangeState(GameState.StartDay);
+    }
+
+    private void Update()
+    {
+        if (CurrentState == GameState.EndDay && Input.GetKeyDown(KeyCode.N))
+        {
+            StartNewDay();
+        }
+
+        if (Input.GetKeyDown(KeyCode.C)) // press c to chang states
+        {
+            CycleState();
+        }
+    }
+    //cycles through states
+    private void CycleState()
+    {
+        switch (CurrentState)
+        {
+            case GameState.StartDay:
+                OpenShop();
+                break;
+            case GameState.OpenShop:
+                EndDay();
+                break;
+            case GameState.EndDay:
+                StartNewDay();
+                break;
+        }
+        Debug.Log("Current State: " + CurrentState);
     }
 }

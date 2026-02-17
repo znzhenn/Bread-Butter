@@ -4,10 +4,25 @@ using UnityEngine;
 
 public class DisplaySystem : MonoBehaviour
 {
-    public List<Bread> breadsOnDisplay = new List<Bread>();
-    public int maxSlots = 3; //bakery upgrade later in game
+    public static DisplaySystem Instance { 
+        get; 
+        private set; }
+    [SerializeField] private int maxSlots = 3; // starting slots
+    public int MaxSlots => maxSlots;
 
-    public Boolean AddBread(Bread bread)
+    public List<Bread> breadsOnDisplay = new List<Bread>();
+
+     private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
+
+    public bool AddBread(Bread bread)
     {
         if (breadsOnDisplay.Count>= maxSlots)
         {
@@ -28,4 +43,14 @@ public class DisplaySystem : MonoBehaviour
         breadsOnDisplay.RemoveAt(0);
         return bread;
     }
+
+    /* for later
+    public void IncreaseMaxSlots(int amount)
+    {
+        if (amount <= 0) return;
+        maxSlots += amount;
+        Debug.Log("Display upgraded! Max slots: " + maxSlots);
+    }
+
+    */
 }
