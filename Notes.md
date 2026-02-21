@@ -64,11 +64,12 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 4 (2/17 - 2/23)
-- changes
+- Saved week 3 files to desktop to get a clean version
+- Rewrote GameManager Engine
 - 
 - 
 - 
-- 
+- [Unity Tutorial for Beginners](https://www.youtube.com/watch?v=XtQMytORBmM&t=1079s)
 
 **to-do list**
 - visual diagram to plan out the system
