@@ -29,6 +29,18 @@ public class GameManager : MonoBehaviour
         get; private set;
     } = 0; // exact amount to be decided later
     
+    //assign instance
+    private void Awake()
+    {
+        if(Instance == null)
+        {
+            Instance = this;
+        } else
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
         StartNewDay();
@@ -39,6 +51,9 @@ public class GameManager : MonoBehaviour
     {
         CurrentState = GameState.StartDay;
         Debug.Log("Starting Day " + Day + "!");
+
+        //do the prepwork  (time-based or smth like that)
+        OpenShop();
     }
 
     //opens the shop 
@@ -56,8 +71,8 @@ public class GameManager : MonoBehaviour
 
 
         Day++;
-
-        // doesn't change the state
+        StartNewDay();
+        //changes the state automatically
     }
     
     

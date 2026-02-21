@@ -1,17 +1,24 @@
 using UnityEngine;
 
-public abstract class Bread
+public class Bread
 {
-    public string breadName;
-    public int quality;
-    public int value;
+    public Recipe recipe;
+    public float quality;
+    public float breadValue;
 
     // constructor
-    public Bread(string name, int quality, int value)
+    public Bread(Recipe recipe, float quality)
     {
-        this.breadName = name;
+        this.recipe = recipe;
         this.quality = quality;
-        this.value = value;
+        CalculateBreadValue();
     }
+
+    void CalculateBreadValue()
+    {
+        breadValue = recipe.baseValue * quality; //exact value to be adjusted later
+    }
+
+
 
 }
