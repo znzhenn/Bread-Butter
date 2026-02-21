@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CustomerTest : MonoBehaviour
+public class CustomerTestButton : MonoBehaviour
 {
     public CustomerSystem customerManager;
     public Recipe testRecipe;   // assign in Inspector
