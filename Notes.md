@@ -71,6 +71,12 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 
 **to-do list**
+- visual diagram to plan out the system
+- doing some sort of basic interaction
+- 1 month until midterm (concentrate on the base gameplay)
+- interaction between the objects and users
+- get 1 scene or level put together (visual + interaction)
+- rewriting is good yayy
 
 ## Week 5 ()
 - changes

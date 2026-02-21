@@ -91,133 +91,14 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             ""name"": ""Gameplay"",
             ""id"": ""1b57ed55-8588-4905-b69a-165068e276e9"",
-            ""actions"": [
-                {
-                    ""name"": ""Bake"",
-                    ""type"": ""Button"",
-                    ""id"": ""9e10deb4-fb85-4a53-8021-8afc195597e2"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": ""Press"",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""start new day"",
-                    ""type"": ""Button"",
-                    ""id"": ""e38c16a0-dcff-49a6-b206-fe1990ed15f4"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""cycle"",
-                    ""type"": ""Button"",
-                    ""id"": ""8044f761-a57a-47cc-a7d4-48fb76c8dbe3"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                },
-                {
-                    ""name"": ""take bread"",
-                    ""type"": ""Button"",
-                    ""id"": ""148b39b7-bdda-4774-a9d4-df34d9b1fe49"",
-                    ""expectedControlType"": """",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""d623d90f-23ab-4c7f-af46-be01de63fd18"",
-                    ""path"": ""<Keyboard>/space"",
-                    ""interactions"": ""Press"",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""Bake"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""cc9cfbc0-69a6-45a0-b571-53e324d3bf34"",
-                    ""path"": ""<Keyboard>/n"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""start new day"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""360cf88d-1790-4790-be42-832baace2298"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""start new day"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""b6454c4d-b7f6-429c-bbfc-f4467391335d"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""cycle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""4085c014-54f2-47d8-926b-6dfca63c73ee"",
-                    ""path"": ""<Keyboard>/c"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""cycle"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""9d302d93-1ced-4125-9307-03c7b8e57fd0"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""take bread"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""2be94961-1811-47b3-89b2-e65b1cd3ea17"",
-                    ""path"": ""<Keyboard>/r"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""take bread"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
+            ""actions"": [],
+            ""bindings"": []
         }
     ],
     ""controlSchemes"": []
 }");
         // Gameplay
         m_Gameplay = asset.FindActionMap("Gameplay", throwIfNotFound: true);
-        m_Gameplay_Bake = m_Gameplay.FindAction("Bake", throwIfNotFound: true);
-        m_Gameplay_startnewday = m_Gameplay.FindAction("start new day", throwIfNotFound: true);
-        m_Gameplay_cycle = m_Gameplay.FindAction("cycle", throwIfNotFound: true);
-        m_Gameplay_takebread = m_Gameplay.FindAction("take bread", throwIfNotFound: true);
     }
 
     ~@PlayerInputActions()
@@ -298,10 +179,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     // Gameplay
     private readonly InputActionMap m_Gameplay;
     private List<IGameplayActions> m_GameplayActionsCallbackInterfaces = new List<IGameplayActions>();
-    private readonly InputAction m_Gameplay_Bake;
-    private readonly InputAction m_Gameplay_startnewday;
-    private readonly InputAction m_Gameplay_cycle;
-    private readonly InputAction m_Gameplay_takebread;
     /// <summary>
     /// Provides access to input actions defined in input action map "Gameplay".
     /// </summary>
@@ -313,22 +190,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// Construct a new instance of the input action map wrapper class.
         /// </summary>
         public GameplayActions(@PlayerInputActions wrapper) { m_Wrapper = wrapper; }
-        /// <summary>
-        /// Provides access to the underlying input action "Gameplay/Bake".
-        /// </summary>
-        public InputAction @Bake => m_Wrapper.m_Gameplay_Bake;
-        /// <summary>
-        /// Provides access to the underlying input action "Gameplay/startnewday".
-        /// </summary>
-        public InputAction @startnewday => m_Wrapper.m_Gameplay_startnewday;
-        /// <summary>
-        /// Provides access to the underlying input action "Gameplay/cycle".
-        /// </summary>
-        public InputAction @cycle => m_Wrapper.m_Gameplay_cycle;
-        /// <summary>
-        /// Provides access to the underlying input action "Gameplay/takebread".
-        /// </summary>
-        public InputAction @takebread => m_Wrapper.m_Gameplay_takebread;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -355,18 +216,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         {
             if (instance == null || m_Wrapper.m_GameplayActionsCallbackInterfaces.Contains(instance)) return;
             m_Wrapper.m_GameplayActionsCallbackInterfaces.Add(instance);
-            @Bake.started += instance.OnBake;
-            @Bake.performed += instance.OnBake;
-            @Bake.canceled += instance.OnBake;
-            @startnewday.started += instance.OnStartnewday;
-            @startnewday.performed += instance.OnStartnewday;
-            @startnewday.canceled += instance.OnStartnewday;
-            @cycle.started += instance.OnCycle;
-            @cycle.performed += instance.OnCycle;
-            @cycle.canceled += instance.OnCycle;
-            @takebread.started += instance.OnTakebread;
-            @takebread.performed += instance.OnTakebread;
-            @takebread.canceled += instance.OnTakebread;
         }
 
         /// <summary>
@@ -378,18 +227,6 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
         /// <seealso cref="GameplayActions" />
         private void UnregisterCallbacks(IGameplayActions instance)
         {
-            @Bake.started -= instance.OnBake;
-            @Bake.performed -= instance.OnBake;
-            @Bake.canceled -= instance.OnBake;
-            @startnewday.started -= instance.OnStartnewday;
-            @startnewday.performed -= instance.OnStartnewday;
-            @startnewday.canceled -= instance.OnStartnewday;
-            @cycle.started -= instance.OnCycle;
-            @cycle.performed -= instance.OnCycle;
-            @cycle.canceled -= instance.OnCycle;
-            @takebread.started -= instance.OnTakebread;
-            @takebread.performed -= instance.OnTakebread;
-            @takebread.canceled -= instance.OnTakebread;
         }
 
         /// <summary>
@@ -430,33 +267,5 @@ public partial class @PlayerInputActions: IInputActionCollection2, IDisposable
     /// <seealso cref="GameplayActions.RemoveCallbacks(IGameplayActions)" />
     public interface IGameplayActions
     {
-        /// <summary>
-        /// Method invoked when associated input action "Bake" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnBake(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "start new day" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnStartnewday(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "cycle" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnCycle(InputAction.CallbackContext context);
-        /// <summary>
-        /// Method invoked when associated input action "take bread" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
-        /// </summary>
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
-        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-        void OnTakebread(InputAction.CallbackContext context);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Bread
+public abstract class Bread
 {
     public string breadName;
     public int quality;
