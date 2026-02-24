@@ -1,61 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class BakingSystem : MonoBehaviour
 {
-    private DisplaySystem displaySystem;
-    private PlayerInputActions inputActions;
-    private void Awake()
+    public List<Bread> breadsForSale = new List<Bread>();
+    public void BakeBread(Recipe recipe)
     {
-        displaySystem = DisplaySystem.Instance;
-        inputActions = new PlayerInputActions();
+        float accuracy = RunTimingMinigame(recipe.difficulty);
+        float quality = CalculateQuality(accuracy);
+
+        Bread newBread = new Bread(recipe, quality);
+        breadsForSale.Add(newBread);
+
+        Debug.Log(recipe.recipeName + " has been baked!" + quality + " star quality " + newBread.breadValue + "cost");
     }
 
-    private void OnEnable()
+    float RunTimingMinigame(int difficulty)
     {
-        inputActions.Gameplay.Enable();
-        inputActions.Gameplay.Bake.performed += OnBake;
+        //temp placeholder
+        return Random.Range(05f, 1.0f);
     }
 
-    private void OnDisable()
+    float CalculateQuality(float accuracy)
     {
-        inputActions.Gameplay.Bake.performed -= OnBake;
-        inputActions.Gameplay.Disable();
+        // exact quality calculations added later
+        return accuracy;
     }
-
-    private void OnBake(InputAction.CallbackContext context)
-    {
-        BakeBread();
-    }
-
-    public void BakeBread()
-    {
-        if (displaySystem == null)
-        {
-            Debug.LogError("Display System is not assigned!");
-            return;
-        }
-        
-        GameManager.GameState current = GameManager.Instance.CurrentState;
-    if (current != GameManager.GameState.StartDay && current != GameManager.GameState.OpenShop)
-    {
-        Debug.Log("Cannot bake right now! Wait until StartDay or OpenShop.");
-        return;
-    }
-
-    if (displaySystem.breadsOnDisplay.Count >= displaySystem.MaxSlots)
-    {
-        Debug.Log("Display is Already Full!");
-        return;
-    }
-
-        int quality = Random.Range(50, 101);
-        int value = quality/10;
-
-        Bread bread = new Bread("White Loaf", quality, value);
-        displaySystem.AddBread(bread);
-        //prints what bread is added
-            
-    }
-
+ 
 }
