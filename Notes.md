@@ -67,15 +67,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - Saved week 3 files to desktop to get a clean version
 - Rewrote GameManager Engine
 - TestButtons/Interactions Created: Baking Bread, Customers Purchasing Bread
-- Bread different bread objects
+- Created different bread objects (to be expanded on later)
 - 
 - [Unity Tutorial for Beginners](https://www.youtube.com/watch?v=XtQMytORBmM&t=1079s)
-
-**to-do list**
-- visual diagram to plan out the system
-- 1 month until midterm (concentrate on the base gameplay)
-- interaction between the objects and users
-- get 1 scene or level put together (visual + interaction)
 
 
 ## Week 5 ()
