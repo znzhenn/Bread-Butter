@@ -72,15 +72,11 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [Unity Tutorial for Beginners](https://www.youtube.com/watch?v=XtQMytORBmM&t=1079s)
 
 
-## Week 5 ()
-- changes
-- 
-- 
-- 
-- 
-**to-do list**
+## Week 5 (2/24 - 3/2)
+- prints out bread available in the shop
+- customer spawner
 
-## Week 6 ()
+## Week 6 (3/3 - 3/19)
 - changes
 - 
 - 
