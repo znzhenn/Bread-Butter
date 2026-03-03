@@ -73,12 +73,8 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 5 (2/24 - 3/2)
-- changes
-- 
-- 
-- 
-- 
-**to-do list**
+- prints out bread available in the shop
+- customer spawner
 
 ## Week 6 (3/3 - 3/19)
 - changes
