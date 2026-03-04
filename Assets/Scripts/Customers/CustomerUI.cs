@@ -17,6 +17,11 @@ public class CustomerUI : MonoBehaviour
         this.customer = customer;
         nameText.text = customer.customerName;
         breadText.text = customer.favoriteBread.recipeName;
+
+        if (customer.favoriteBread != null)
+        {
+            Debug.Log("Recipe name: " + customer.favoriteBread.recipeName);
+        }
         patienceSlider.maxValue = 1f;
         patienceSlider.value = customer.GetPatiencePercentage();
     }
