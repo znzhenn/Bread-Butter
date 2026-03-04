@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: WhiteLoafRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: White Loaf
-  difficulty: 5
+  difficulty: 2
   baseValue: 10

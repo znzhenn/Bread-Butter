@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 631221f618a3a0f4bbee121ebdc33ee2, type: 3}
   m_Name: BagelRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  recipeName: 
-  difficulty: 0
+  recipeName: Bagel
+  difficulty: 3
   baseValue: 0
