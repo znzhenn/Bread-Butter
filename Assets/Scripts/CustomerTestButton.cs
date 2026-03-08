@@ -19,6 +19,6 @@ public class CustomerTestButton : MonoBehaviour
 
     public void OnTestCustomerClick()
     {
-        customerManager.CustomerBuys(testCustomer);
+        customerManager.ServeCustomers();
     }
 }

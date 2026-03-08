@@ -94,13 +94,13 @@ public class CustomerSystem : MonoBehaviour
         Debug.Log("No matching breads available.");
     }
 
-    
+    /* no longer needed
     public void CustomerBuys(Customer customer)
     {
         // Called when a customer successfully buys bread
         RemoveCustomer(customer, true);
         Debug.Log(customer.customerName + " has purchased their bread!");
-    }
+    }*/
     
     /*
     public BakingSystem bakingSystem;
