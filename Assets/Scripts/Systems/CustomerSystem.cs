@@ -14,6 +14,19 @@ public class CustomerSystem : MonoBehaviour
     //econ
     public BakingSystem bakingSystem;
     public int money = 0;
+    public MoneyUI moneyUI;
+
+    void Start()
+    {
+        moneyUI = FindObjectOfType<MoneyUI>();
+
+        if (moneyUI == null)
+        {
+            Debug.LogError("MoneyUI not found in the scene!");
+            return;
+        }
+        moneyUI.UpdateMoney();
+    }
 
     void Update()
     {
@@ -81,6 +94,7 @@ public class CustomerSystem : MonoBehaviour
             {
                 bakingSystem.breadsForSale.Remove(breadToSell);
                 money += Mathf.RoundToInt(breadToSell.breadValue);
+                moneyUI.UpdateMoney();
 
                 Debug.Log(customer.customerName + 
                         " bought " + breadToSell.recipe.recipeName +
