@@ -77,7 +77,13 @@ This file tracks progress, milestones, changes in development, as well as an add
 - customer spawner
 
 ## Week 6 (3/3 - 3/19)
-- changes
+- CustomerUIPrefab
+- Button fixes (Buying and selling bread)
+- Basic money system implemented (visuals aren't quite working yet) 
+- 
+- 
+- 
+- 
 - 
 - 
 - [How to Create a Prefab](https://docs.unity3d.com/6000.3/Documentation/Manual/CreatingPrefabs.html#:~:text=Create%20a%20prefab%20asset,-To%20create%20a&text=See%20in%20Glossary%20and%20configure,new%20variants%20from%20the%20GameObjects.)

@@ -7,7 +7,7 @@ public class BakeButton : MonoBehaviour
 
     public void onPressBakeButton()
     {
-        Debug.Log ("Button clicked");
+        // Debug.Log ("Button clicked");
         bakingSystem.BakeBread(recipeToBake);
     }
 }

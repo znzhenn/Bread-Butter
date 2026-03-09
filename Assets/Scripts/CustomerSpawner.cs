@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class CustomerSpawner : MonoBehaviour
 {
-    public GameObject customerUIPrefab;
     public CustomerSystem customerSystem;
     public List<Recipe> availableRecipes;
 
