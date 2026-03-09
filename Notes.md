@@ -76,11 +76,11 @@ This file tracks progress, milestones, changes in development, as well as an add
 - prints out bread available in the shop
 - customer spawner
 
-## Week 6 (3/3 - 3/19)
+## Week 6 (3/3 - 3/9)
 - CustomerUIPrefab
 - Button fixes (Buying and selling bread)
-- Basic money system implemented (visuals aren't quite working yet) 
-- 
+- Money & Purchasing system corrected
+- BreadPrefab created (making the game more scalable)
 - 
 - 
 - 
