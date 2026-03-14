@@ -11,6 +11,22 @@ public class CustomerSystem : MonoBehaviour
 
     private float tickTimer = 0f;
     private Dictionary<Customer, CustomerUI> customerToUI = new Dictionary<Customer, CustomerUI>();
+    //econ
+    public BakingSystem bakingSystem;
+    public int money = 0;
+    public MoneyUI moneyUI;
+
+    void Start()
+    {
+        moneyUI = FindObjectOfType<MoneyUI>();
+
+        if (moneyUI == null)
+        {
+            Debug.LogError("MoneyUI not found in the scene!");
+            return;
+        }
+        moneyUI.UpdateMoney();
+    }
 
     void Update()
     {
@@ -67,12 +83,38 @@ public class CustomerSystem : MonoBehaviour
             Debug.Log(customer.customerName + " ran out of patience and left!");
     }
 
+    public void ServeCustomers()
+    {
+        foreach (Customer customer in new List<Customer>(activeCustomers))
+        {
+            Bread breadToSell = bakingSystem.breadsForSale
+                .Find(b => b.recipe == customer.favoriteBread);
+
+            if (breadToSell != null)
+            {
+                bakingSystem.breadsForSale.Remove(breadToSell);
+                money += Mathf.RoundToInt(breadToSell.breadValue);
+                moneyUI.UpdateMoney();
+
+                Debug.Log(customer.customerName + 
+                        " bought " + breadToSell.recipe.recipeName +
+                        " for " + Mathf.RoundToInt(breadToSell.breadValue) + " coins!");
+
+                RemoveCustomer(customer, true);
+                return; // remove this line if you want to serve multiple at once
+            }
+        }
+
+        Debug.Log("No matching breads available.");
+    }
+
+    /* no longer needed
     public void CustomerBuys(Customer customer)
     {
         // Called when a customer successfully buys bread
         RemoveCustomer(customer, true);
-        Debug.Log(customer.customerName + " bought their bread and left happily!");
-    }
+        Debug.Log(customer.customerName + " has purchased their bread!");
+    }*/
     
     /*
     public BakingSystem bakingSystem;

@@ -4,21 +4,24 @@ using UnityEngine.InputSystem;
 
 public class BakingSystem : MonoBehaviour
 {
+    public GameObject breadPrefab;
     public List<Bread> breadsForSale = new List<Bread>();
     public int BreadCount => breadsForSale.Count;
-    public void BakeBread(Recipe recipe)
+   public void BakeBread(Recipe recipe)
     {
-        //Debug.Log("BakeBread was called!");
         float accuracy = RunTimingMinigame(recipe.difficulty);
         float quality = CalculateQuality(accuracy);
 
-        Bread newBread = new Bread(recipe, quality);
+        GameObject breadObj = Instantiate(breadPrefab);
+        Bread newBread = breadObj.GetComponent<Bread>();
+        newBread.Initialize(recipe, quality);
+
         breadsForSale.Add(newBread);
-        Debug.Log("Current bread count: " + breadsForSale.Count);
 
-        Debug.Log(recipe.recipeName + " has been baked!" + quality + " star quality " + newBread.breadValue + "cost");
+        Debug.Log($"Current bread count: {breadsForSale.Count}");
+        Debug.Log($"{recipe.recipeName} has been baked! {quality:F2} star quality, value {newBread.breadValue}");
     }
-
+    
     float RunTimingMinigame(int difficulty)
     {
         //temp placeholder
