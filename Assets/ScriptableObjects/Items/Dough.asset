@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3af6cdb45d47aa45b2945c4dc15d94f, type: 3}
   m_Name: Dough
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: 
+  itemName: Dough
   icon: {fileID: 0}
   sellPrice: 0
