@@ -10,7 +10,7 @@ public class Oven : Interactable
 
     public override void Interact()
     {
-        Inventory inventory = FindObjectOfType<Inventory>();
+        Inventory inventory = FindFirstObjectByType<Inventory>();
 
         if (inventory.HasItem(dough,1))
         {

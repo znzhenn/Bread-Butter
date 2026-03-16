@@ -9,7 +9,7 @@ public class MixingBowl : Interactable
 
     public override void Interact()
     {
-        Inventory inventory = FindObjectOfType<Inventory>();
+        Inventory inventory = FindFirstObjectByType<Inventory>();
 
         if (inventory.HasItem(flour,1) &&
             inventory.HasItem(water,1) &&

@@ -1,46 +1,41 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
-    public float interactRange = 1.5f;
+    public float interactRange = 2f;
 
-    private PlayerInputActions inputActions;
-
-    void Awake()
+    void OnInteract()
     {
-        inputActions = new PlayerInputActions();
-    }
-
-    void OnEnable()
-    {
-        inputActions.Enable();
-        inputActions.Player.Interact.performed += OnInteract;
-    }
-
-    void OnDisable()
-    {
-        inputActions.Player.Interact.performed -= OnInteract;
-        inputActions.Disable();
-    }
-
-    void OnInteract(InputAction.CallbackContext context)
-    {
+        Debug.Log("Interact pressed!");
         TryInteract();
     }
 
     void TryInteract()
     {
-        Collider2D hit = Physics2D.OverlapCircle(transform.position, interactRange);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRange);
 
-        if (hit != null)
+        foreach (Collider2D hit in hits)
         {
-            Interactable interactable = hit.GetComponent<Interactable>();
+            if (hit.gameObject == gameObject)
+                continue; // skip the player
+
+            Debug.Log("Hit: " + hit.name);
+
+            Interactable interactable = hit.GetComponentInParent<Interactable>();
 
             if (interactable != null)
             {
                 interactable.Interact();
+                return;
             }
         }
+
+        Debug.Log("Nothing interactable found");
+    }
+
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, interactRange);
     }
 }

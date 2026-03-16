@@ -90,15 +90,14 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [Step by Step Unity Guide](https://learn.unity.com)
 
 
-## Week 7 ()
-- changes
+## Week 7 (3/10 - 3/16)
+- player (white block placeholder) moves freely on the screen
+- static camera centered on player
+- player interaction system is cooked (fixed, it bakes something or at least pretends to rn)
+-
 - 
 - 
 - 
-- 
-
-**to-do list**
-
 
 
 ## Week 8 ()
