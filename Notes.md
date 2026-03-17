@@ -94,19 +94,15 @@ This file tracks progress, milestones, changes in development, as well as an add
 - player (white block placeholder) moves freely on the screen
 - static camera centered on player
 - player interaction system is cooked (fixed, it bakes something or at least pretends to rn)
--
-- 
-- 
-- 
+- player spawns in with ingredients, kneeds dough, shapes it, bakes, and successfully puts it in the display
 
 
-## Week 8 ()
-- changes
+## Week 8 (3/17 - 3/23)
+- unity project imported to laptop without (Evident) errors
 - 
 - 
 - 
 -
-**to-do list**
 
 
 
