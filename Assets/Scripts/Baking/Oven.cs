@@ -4,7 +4,7 @@ using System.Collections;
 public class Oven : Interactable
 {
     public ItemData shapedDough;
-    public ItemData bread;
+    public ItemData[] possibleBreads;
 
     public float bakeTime = 5f;
 
@@ -28,7 +28,8 @@ public class Oven : Interactable
         Debug.Log("Baking...");
         yield return new WaitForSeconds(bakeTime);
 
-        inventory.AddItem(bread, 1);
+        ItemData result = possibleBreads[Random.Range(0, possibleBreads.Length)];
+        inventory.AddItem(result, 1);
 
         Debug.Log("Bread finished!");
     }

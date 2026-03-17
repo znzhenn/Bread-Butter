@@ -15,3 +15,9 @@ MonoBehaviour:
   recipeName: White Loaf
   difficulty: 2
   baseValue: 10
+  icon: {fileID: 0}
+  ingredients:
+  - {fileID: 11400000, guid: e4f17217e7cf2974396b4fb6be2de9e9, type: 2}
+  - {fileID: 11400000, guid: e4f17217e7cf2974396b4fb6be2de9e9, type: 2}
+  - {fileID: 11400000, guid: 7eb4a5e60bada5042b4f88c4dc185b1f, type: 2}
+  resultItem: {fileID: 11400000, guid: 4468ad3f4dfa7f94faf35f2116035a37, type: 2}
