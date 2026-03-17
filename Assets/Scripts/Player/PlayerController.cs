@@ -29,7 +29,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         movement = inputActions.Player.Move.ReadValue<Vector2>();
-        Debug.Log(movement);
+        /*if (movement != Vector2.zero)
+        {
+            Debug.Log(movement);
+        }*/
     }
 
     void FixedUpdate()

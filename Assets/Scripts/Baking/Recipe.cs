@@ -12,4 +12,8 @@ public class Recipe : ScriptableObject
     // public List<IngredientsRequired> ingredients;
     // public Sprite icon; 
     // public string description; // for more info (and the actual text)
+
+    [Header("Crafting")]
+    public List<ItemData> ingredients;   
+    public ItemData resultItem;        
 }

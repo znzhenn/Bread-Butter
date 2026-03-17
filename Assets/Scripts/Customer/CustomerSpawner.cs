@@ -5,6 +5,9 @@ public class CustomerSpawner : MonoBehaviour
 {
     public CustomerSystem customerSystem;
     public List<Recipe> availableRecipes;
+    public GameObject customerPrefab;
+    public Transform spawnPoint;
+    public DisplayCase displayCase;
 
     public float spawnInterval = 5f; // seconds between spawns
     private float spawnTimer = 0f;
@@ -28,19 +31,22 @@ public class CustomerSpawner : MonoBehaviour
     {
         if (availableRecipes.Count == 0) return;
 
-        // Pick a random name
         string name = sampleNames[Random.Range(0, sampleNames.Length)];
-
-        // Pick a random recipe
         Recipe favorite = availableRecipes[Random.Range(0, availableRecipes.Count)];
 
-        // Random mood & returning status
         float mood = Random.Range(0.5f, 1f);
         bool isReturning = Random.value > 0.5f;
 
         Customer newCustomer = new Customer(name, favorite, mood, isReturning);
-        customerSystem.AddCustomer(newCustomer);
 
-        Debug.Log(name + " entered the shop wanting " + favorite.recipeName);
+        GameObject obj = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
+        obj.name = "Customer_" + name;
+
+        CustomerBehaviour behaviour = obj.GetComponent<CustomerBehaviour>();
+        behaviour.Setup(newCustomer);
+        behaviour.displayCase = displayCase;
+
+        Debug.Log(name + " spawned in world");
+        Debug.Log("Spawned at: " + spawnPoint.position);
     }
 }

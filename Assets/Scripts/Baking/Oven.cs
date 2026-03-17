@@ -3,19 +3,23 @@ using System.Collections;
 
 public class Oven : Interactable
 {
-    public ItemData dough;
-    public ItemData bread;
+    public ItemData shapedDough;
+    public ItemData[] possibleBreads;
 
     public float bakeTime = 5f;
 
     public override void Interact()
     {
-        Inventory inventory = FindObjectOfType<Inventory>();
+        Inventory inventory = FindFirstObjectByType<Inventory>();
 
-        if (inventory.HasItem(dough,1))
+        if (inventory.HasItem(shapedDough, 1))
         {
-            inventory.RemoveItem(dough,1);
+            inventory.RemoveItem(shapedDough, 1);
             StartCoroutine(Bake(inventory));
+        }
+        else
+        {
+            Debug.Log("No shaped dough to bake");
         }
     }
 
@@ -24,7 +28,8 @@ public class Oven : Interactable
         Debug.Log("Baking...");
         yield return new WaitForSeconds(bakeTime);
 
-        inventory.AddItem(bread,1);
+        ItemData result = possibleBreads[Random.Range(0, possibleBreads.Length)];
+        inventory.AddItem(result, 1);
 
         Debug.Log("Bread finished!");
     }
