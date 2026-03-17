@@ -247,6 +247,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8eecceb699c50d04e8ce327d4d41e109, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DisplayCase
+  acceptableBreads:
+  - {fileID: 11400000, guid: 4468ad3f4dfa7f94faf35f2116035a37, type: 2}
   storedBread: []
 --- !u!61 &376889590
 BoxCollider2D:
@@ -362,7 +364,7 @@ Transform:
   m_GameObject: {fileID: 376889588}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.27, y: 0.77, z: 0}
+  m_LocalPosition: {x: -0.05, y: -0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -853,7 +855,7 @@ Transform:
   m_GameObject: {fileID: 944270101}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7.97, y: -1.18, z: 0}
+  m_LocalPosition: {x: -6.12, y: -0.06, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1221,7 +1223,7 @@ Transform:
   m_GameObject: {fileID: 1319407860}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.83, y: 3.62, z: 0}
+  m_LocalPosition: {x: -2.03, y: 0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1465,7 +1467,7 @@ Transform:
   m_GameObject: {fileID: 1799115707}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.64, y: -2.14, z: 0}
+  m_LocalPosition: {x: 2.01, y: -2.29, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1711,7 +1713,7 @@ Transform:
   m_GameObject: {fileID: 2012081321}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.69, y: 1.43, z: 0}
+  m_LocalPosition: {x: -4.15, y: 0.01, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
