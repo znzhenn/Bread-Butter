@@ -101,8 +101,8 @@ This file tracks progress, milestones, changes in development, as well as an add
 - unity project imported to laptop without (Evident) errors
 - 
 - 
-- 
--
+- [Aseprite - Asset Creation Website](https://www.aseprite.org/)
+- [Piskel - Asset Creation Website](https://www.piskelapp.com/)
 
 
 
