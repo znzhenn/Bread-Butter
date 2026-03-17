@@ -3,16 +3,16 @@ using UnityEngine;
 
 public class DisplayCase : Interactable
 {
+    public ItemData[] acceptableBreads;
     public List<ItemData> storedBread = new List<ItemData>();
 
     public override void Interact()
     {
         Inventory inventory = FindFirstObjectByType<Inventory>();
 
-        // Try to add bread from player inventory
         foreach (var item in new List<ItemData>(inventory.items.Keys))
         {
-            if (item.itemName.Contains("Bread"))
+            if (System.Array.Exists(acceptableBreads, b => b == item))
             {
                 inventory.RemoveItem(item, 1);
                 storedBread.Add(item);
@@ -27,11 +27,13 @@ public class DisplayCase : Interactable
 
     public ItemData TakeBread(string requestedName)
     {
-        foreach (var bread in storedBread)
+        for (int i = 0; i < storedBread.Count; i++)
         {
-            if (bread.itemName == requestedName)
+            ItemData bread = storedBread[i];
+
+            if (bread != null && bread.itemName == requestedName)
             {
-                storedBread.Remove(bread);
+                storedBread.RemoveAt(i);
                 return bread;
             }
         }

@@ -81,7 +81,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 - Button fixes (Buying and selling bread)
 - Money & Purchasing system corrected
 - BreadPrefab created (making the game more scalable)
-- 
+- Working on the basic interaction in a simple bakery scene
 - 
 - 
 - 
