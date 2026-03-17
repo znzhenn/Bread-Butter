@@ -625,7 +625,15 @@ MonoBehaviour:
   m_ControlsChangedEvent:
     m_PersistentCalls:
       m_Calls: []
-  m_ActionEvents: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a88bba48-e392-416b-b24d-c1d548ee4484
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 58b586ba-e3f9-4d59-bb7f-87a2f85feabb
+    m_ActionName: 'Player/Interact[/Keyboard/e]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -1097,9 +1105,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Oven
   shapedDough: {fileID: 11400000, guid: 0fc5c54bdcaac5645b06579d0bcc2500, type: 2}
   possibleBreads:
-  - {fileID: 0}
-  - {fileID: 0}
-  bakeTime: 5
+  - {fileID: 11400000, guid: 4468ad3f4dfa7f94faf35f2116035a37, type: 2}
+  bakeTime: 3
 --- !u!61 &1319407862
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1723,7 +1730,7 @@ SceneRoots:
   - {fileID: 773759120}
   - {fileID: 514869521}
   - {fileID: 944270105}
-  - {fileID: 1319407864}
   - {fileID: 2012081325}
+  - {fileID: 1319407864}
   - {fileID: 376889592}
   - {fileID: 1799115711}
