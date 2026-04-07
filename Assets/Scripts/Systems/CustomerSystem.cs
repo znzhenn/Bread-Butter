@@ -3,34 +3,15 @@ using UnityEngine;
 
 public class CustomerSystem : MonoBehaviour
 {
-    [Header("Customer Settings")]
-    public List<Customer> activeCustomers = new List<Customer>();
-    public float patienceTickRate = 1f; // seconds per tick
-    public CustomerUI customerUIPrefab;
-    public Transform uiParent; // where the UI elements will appear
+    public List<Customer> activeCustomers = new();
 
-    private float tickTimer = 0f;
-    private Dictionary<Customer, CustomerUI> customerToUI = new Dictionary<Customer, CustomerUI>();
-    //econ
-    public BakingSystem bakingSystem;
-    public int money = 0;
-    public MoneyUI moneyUI;
+    public float patienceTickRate = 1f;
+    private float tickTimer;
 
-    void Start()
+    public void Tick(float dt)
     {
-        moneyUI = FindObjectOfType<MoneyUI>();
+        tickTimer += dt;
 
-        if (moneyUI == null)
-        {
-            Debug.LogError("MoneyUI not found in the scene!");
-            return;
-        }
-        moneyUI.UpdateMoney();
-    }
-
-    void Update()
-    {
-        tickTimer += Time.deltaTime;
         if (tickTimer >= patienceTickRate)
         {
             tickTimer = 0f;
@@ -38,75 +19,60 @@ public class CustomerSystem : MonoBehaviour
         }
     }
 
-    public void AddCustomer(Customer newCustomer)
+    public void AddCustomer(Customer customer)
     {
-        activeCustomers.Add(newCustomer);
-
-        // Spawn UI
-        CustomerUI ui = Instantiate(customerUIPrefab, uiParent);
-        ui.Setup(newCustomer);
-
-        customerToUI[newCustomer] = ui;
+        activeCustomers.Add(customer);
     }
 
     void TickPatience()
     {
-        List<Customer> customersToRemove = new List<Customer>();
+        List<Customer> toRemove = new();
 
-        foreach (Customer customer in activeCustomers)
+        foreach (var c in activeCustomers)
         {
-            customer.patience -= 1f; // decrease patience
-            if (customer.patience <= 0f)
-            {
-                customersToRemove.Add(customer);
-            }
+            c.TickPatience(1f);
+
+            if (c.IsImpatient())
+                toRemove.Add(c);
         }
 
-        foreach (Customer customer in customersToRemove)
+        foreach (var c in toRemove)
         {
-            RemoveCustomer(customer, false);
+            RemoveCustomer(c);
         }
     }
 
-    public void RemoveCustomer(Customer customer, bool boughtBread)
+    public void RemoveCustomer(Customer customer)
     {
-        if (activeCustomers.Contains(customer))
-            activeCustomers.Remove(customer);
-
-        if (customerToUI.ContainsKey(customer))
-        {
-            Destroy(customerToUI[customer].gameObject);
-            customerToUI.Remove(customer);
-        }
-
-        if (!boughtBread)
-            Debug.Log(customer.customerName + " ran out of patience and left!");
+        activeCustomers.Remove(customer);
+        Debug.Log(customer.customerName + " left (impatient)");
     }
+}
 
-    public void ServeCustomers()
-    {
-        foreach (Customer customer in new List<Customer>(activeCustomers))
-        {
-            Bread breadToSell = bakingSystem.breadsForSale
-                .Find(b => b.recipe == customer.favoriteBread);
+    // public void ServeCustomers()
+    // {
+    //     foreach (Customer customer in new List<Customer>(activeCustomers))
+    //     {
+    //         Bread breadToSell = bakingSystem.breadsForSale
+    //             .Find(b => b.recipe == customer.favoriteBread);
 
-            if (breadToSell != null)
-            {
-                bakingSystem.breadsForSale.Remove(breadToSell);
-                money += Mathf.RoundToInt(breadToSell.breadValue);
-                moneyUI.UpdateMoney();
+    //         if (breadToSell != null)
+    //         {
+    //             bakingSystem.breadsForSale.Remove(breadToSell);
+    //             money += Mathf.RoundToInt(breadToSell.breadValue);
+    //             moneyUI.UpdateMoney();
 
-                Debug.Log(customer.customerName + 
-                        " bought " + breadToSell.recipe.recipeName +
-                        " for " + Mathf.RoundToInt(breadToSell.breadValue) + " coins!");
+    //             Debug.Log(customer.customerName + 
+    //                     " bought " + breadToSell.recipe.recipeName +
+    //                     " for " + Mathf.RoundToInt(breadToSell.breadValue) + " coins!");
 
-                RemoveCustomer(customer, true);
-                return; // remove this line if you want to serve multiple at once
-            }
-        }
+    //             RemoveCustomer(customer, true);
+    //             return; // remove this line if you want to serve multiple at once
+    //         }
+    //     }
 
-        Debug.Log("No matching breads available.");
-    }
+    //     Debug.Log("No matching breads available.");
+    // }
 
     /* no longer needed
     public void CustomerBuys(Customer customer)
@@ -151,4 +117,3 @@ public class CustomerSystem : MonoBehaviour
     {
         
     }*/
-}

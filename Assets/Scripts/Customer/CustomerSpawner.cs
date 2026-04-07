@@ -1,21 +1,23 @@
-using System.Collections.Generic;
 using UnityEngine;
+using System.Collections.Generic;
 
 public class CustomerSpawner : MonoBehaviour
 {
     public CustomerSystem customerSystem;
+    public ShopSystem shopSystem;
+
     public List<Recipe> availableRecipes;
+
     public GameObject customerPrefab;
     public Transform spawnPoint;
-    public DisplayCase displayCase;
+    public OrderSystem orderSystem;
 
-    public float spawnInterval = 5f; // seconds between spawns
-    private float spawnTimer = 0f;
-
+    public float spawnInterval = 5f;
     private float timer;
 
-    public string[] sampleNames = { "Alice", "Bob", "Charlie", "Diana", "Ethan" };
+    public string[] names = { "Alice", "Bob", "Charlie" };
 
+    
     void Update()
     {
         timer += Time.deltaTime;
@@ -29,24 +31,18 @@ public class CustomerSpawner : MonoBehaviour
 
     void SpawnCustomer()
     {
-        if (availableRecipes.Count == 0) return;
+        string name = names[Random.Range(0, names.Length)];
+        Recipe recipe = availableRecipes[Random.Range(0, availableRecipes.Count)];
 
-        string name = sampleNames[Random.Range(0, sampleNames.Length)];
-        Recipe favorite = availableRecipes[Random.Range(0, availableRecipes.Count)];
-
-        float mood = Random.Range(0.5f, 1f);
-        bool isReturning = Random.value > 0.5f;
-
-        Customer newCustomer = new Customer(name, favorite, mood, isReturning);
+        Customer customer = new Customer(name, recipe, 1f, false);
 
         GameObject obj = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
-        obj.name = "Customer_" + name;
 
-        CustomerBehaviour behaviour = obj.GetComponent<CustomerBehaviour>();
-        behaviour.Setup(newCustomer);
-        behaviour.displayCase = displayCase;
+        var behaviour = obj.GetComponent<CustomerBehaviour>();
+        behaviour.Setup(customer);
 
-        Debug.Log(name + " spawned in world");
-        Debug.Log("Spawned at: " + spawnPoint.position);
+        behaviour.OnTryPurchase += shopSystem.TryServeCustomer;
+        customerSystem.AddCustomer(customer);
+        orderSystem.PlaceOrder(customer);
     }
 }

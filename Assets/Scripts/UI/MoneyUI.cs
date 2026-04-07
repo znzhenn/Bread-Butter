@@ -4,6 +4,7 @@ using TMPro;
 public class MoneyUI : MonoBehaviour
 {
     public CustomerSystem customerSystem;
+    public ShopSystem ShopSystem;
     public TextMeshProUGUI moneyText;
 
     void Start()
@@ -18,7 +19,7 @@ public class MoneyUI : MonoBehaviour
 
     public void UpdateMoney()
     {
-        Debug.Log(customerSystem.money);
-        moneyText.text = "Coins: " + customerSystem.money;
+        Debug.Log(ShopSystem.money);
+        moneyText.text = "Gold: " + ShopSystem.money;
     }
 }

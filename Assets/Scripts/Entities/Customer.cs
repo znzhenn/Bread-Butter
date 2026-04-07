@@ -15,7 +15,8 @@ public class Customer
         this.favoriteBread = favoriteBread;
         this.mood = mood;
         this.isReturning = isReturning;
-        this.patience = 10f;
+        maxPatience = 10f;
+        patience = maxPatience;
     }
 
     //losing patience

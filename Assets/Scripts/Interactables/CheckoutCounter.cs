@@ -18,7 +18,7 @@ public class CheckoutCounter : Interactable
     if (inventory.HasItem(bread, 1))
     {
         inventory.RemoveItem(bread, 1);
-        customer.ReceiveBread(bread);
+        //customer.ReceiveBread(bread);
     }
     else
     {
