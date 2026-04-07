@@ -105,13 +105,12 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 9 + 10 (3/24 - 4/7)
+- 
+- 
+- 
+- 
 - system design diagram created
-- 
-- 
-- 
-- 
-
-
+![System Design Diagram](<System Design Diagram.png>)
 
 
 
