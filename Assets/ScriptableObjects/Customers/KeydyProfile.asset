@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: KeydyProfile
   m_EditorClassIdentifier: Assembly-CSharp::CustomerProfile
   customerName: Keydy
-  favoriteBread: {fileID: 11400000, guid: 7a7a7199c81e4e149902edf32d68722c, type: 2}
+  favoriteBread: {fileID: 11400000, guid: bf67de723ebd1fd4abd8d15fef4c82c6, type: 2}
   mood: 1
   isReturning: 0
   maxPatience: 10
