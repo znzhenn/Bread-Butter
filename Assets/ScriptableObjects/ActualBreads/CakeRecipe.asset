@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 631221f618a3a0f4bbee121ebdc33ee2, type: 3}
-  m_Name: cake
+  m_Name: CakeRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
-  recipeName: cake
+  recipeName: Cake
   difficulty: 1
   baseValue: 5
   icon: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
