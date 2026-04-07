@@ -24,6 +24,17 @@ public class CustomerSpawner : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance == null)
+        {
+            Debug.LogWarning("CustomerSpawner cannot find GameManager.");
+            return;
+        }
+
+        if (GameManager.Instance.CurrentState != GameManager.GameState.OpenShop)
+        {
+            return;
+        }
+
         timer += Time.deltaTime;
 
         if (timer >= spawnInterval)
@@ -71,6 +82,12 @@ public class CustomerSpawner : MonoBehaviour
             return;
         }
 
+        if (nextCustomerIndex >= customerProfiles.Count)
+        {
+            Debug.Log("All of the customers in town have been to the shop!");
+            return;
+        }
+
         CustomerProfile profile = customerProfiles[nextCustomerIndex];
 
         if (profile == null)
@@ -82,7 +99,7 @@ public class CustomerSpawner : MonoBehaviour
 
         if (profile.favoriteBread == null)
         {
-            Debug.LogWarning(profile.customerName + " has no favorite bread assigned.");
+            Debug.LogWarning(profile.customerName + " doesn't have a favorite type of bread.");
             AdvanceIndex();
             return;
         }
@@ -121,11 +138,10 @@ public class CustomerSpawner : MonoBehaviour
 
         if (nextCustomerIndex >= customerProfiles.Count)
         {
-            Debug.Log("All predefined customers have been spawned.");
-            enabled = false;
+            Debug.Log("All of the customers in town have been to the shop!");
         }
     }
-
+}
     // void AdvanceIndex()
     // {
     //     nextCustomerIndex++;
@@ -135,4 +151,3 @@ public class CustomerSpawner : MonoBehaviour
     //         nextCustomerIndex = 0;
     //     }
     //}
-}
