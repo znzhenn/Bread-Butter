@@ -11,9 +11,10 @@ public class Inventory : MonoBehaviour
 
     void Start()
     {
-        AddItem(flour, 5);
-        AddItem(water, 5);
-        AddItem(yeast, 5);
+        //start with 3 for now
+        AddItem(flour, 3);
+        AddItem(water, 3);
+        AddItem(yeast, 3);
     }
 
     public void AddItem(ItemData item, int amount)

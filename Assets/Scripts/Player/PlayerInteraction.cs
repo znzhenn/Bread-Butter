@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactRange = 2f;
 
-    void OnInteract()
+    public void OnInteract(InputValue value)
     {
+        if (!value.isPressed) return;
+
         Debug.Log("Interact pressed!");
         TryInteract();
     }
@@ -17,7 +20,7 @@ public class PlayerInteraction : MonoBehaviour
         foreach (Collider2D hit in hits)
         {
             if (hit.gameObject == gameObject)
-                continue; // skip the player
+                continue;
 
             Debug.Log("Hit: " + hit.name);
 
