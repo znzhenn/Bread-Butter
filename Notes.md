@@ -126,6 +126,14 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 **to-do list**
+- build a system diagram of how unity works (how they interact with the unity engine to make the game work)
+- build something out without the squares
+- how the game dynamics interact with the game system
+- gameplay + system design
+- visuals
+- clean system design diagram
+- my components x unity engine
+- learn into research and system design
 
 
 
