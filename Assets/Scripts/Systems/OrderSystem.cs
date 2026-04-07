@@ -29,7 +29,7 @@ public class OrderSystem : MonoBehaviour
 
     public Order FindOrderForCustomer(Customer customer)
     {
-        foreach (var order in activeOrders)
+        foreach (Order order in activeOrders)
         {
             if (order.customer == customer)
             {

@@ -1,4 +1,3 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ShopSystem : MonoBehaviour
@@ -7,44 +6,42 @@ public class ShopSystem : MonoBehaviour
     public CustomerSystem customerSystem;
     public OrderSystem orderSystem;
 
-    public int money;
+    public int money = 0;
 
-    public void TryServeBread(Bread bread)
+    public void TryServeCustomer(CustomerBehaviour customerBehaviour)
     {
-        Order order = orderSystem.FindMatchingOrder(bread); 
+        if (customerBehaviour == null || customerBehaviour.customerData == null)
+            return;
 
-        if (order != null)
-        {
-            money += Mathf.RoundToInt(bread.breadValue);
-
-            orderSystem.CompleteOrder(order);
-            customerSystem.RemoveCustomer(order.customer);
-
-            Debug.Log("Served correct order!");
-        }
-        else
-        {
-            Debug.Log("No one wants this bread!");
-        }
-    }
-    public void TryServeCustomer(CustomerBehaviour customer)
-    {
-        string desired = customer.customerData.favoriteBread.recipeName;
+        Customer customer = customerBehaviour.customerData;
+        string desired = customer.favoriteBread.recipeName;
 
         ItemData bread = displayCase.TakeBread(desired);
 
         if (bread != null)
         {
-            money += 10; // temp value
+            Order matchingOrder = orderSystem.FindOrderForCustomer(customer);
 
-            Debug.Log(customer.customerData.customerName + " bought " + desired);
+            if (matchingOrder != null)
+            {
+                money += Mathf.RoundToInt(customer.favoriteBread.baseValue);
 
-            customerSystem.RemoveCustomer(customer.customerData);
-            Destroy(customer.gameObject);
+                orderSystem.CompleteOrder(matchingOrder);
+                customerSystem.RemoveCustomer(customer);
+
+                Debug.Log(customer.customerName + " bought " + desired + "!");
+                Debug.Log("Gold: " + money);
+
+                Destroy(customerBehaviour.gameObject);
+            }
+            else
+            {
+                Debug.LogWarning("Bread found, but no order was found for " + customer.customerName);
+            }
         }
         else
         {
-            Debug.Log(customer.customerData.customerName + " still waiting...");
+            Debug.Log(customer.customerName + " is still waiting for " + desired);
         }
     }
 }

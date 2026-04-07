@@ -4,7 +4,6 @@ using System;
 public class CustomerBehaviour : MonoBehaviour
 {
     public Customer customerData;
-
     public Action<CustomerBehaviour> OnTryPurchase;
 
     private float checkTimer = 2f;
@@ -14,8 +13,16 @@ public class CustomerBehaviour : MonoBehaviour
         customerData = customer;
     }
 
-    public void PlaceOrder()
+    void Update()
     {
-        Debug.Log(customerData.customerName + " is waiting for " + customerData.favoriteBread.recipeName);
+        if (customerData == null) return;
+
+        checkTimer -= Time.deltaTime;
+
+        if (checkTimer <= 0f)
+        {
+            OnTryPurchase?.Invoke(this);
+            checkTimer = 2f;
+        }
     }
 }

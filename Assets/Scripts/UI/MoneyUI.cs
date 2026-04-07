@@ -7,6 +7,7 @@ public class MoneyUI : MonoBehaviour
     public ShopSystem ShopSystem;
     public TextMeshProUGUI moneyText;
 
+    [System.Obsolete]
     void Start()
     {
         if (customerSystem == null)
