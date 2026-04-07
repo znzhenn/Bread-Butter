@@ -82,9 +82,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - Money & Purchasing system corrected
 - BreadPrefab created (making the game more scalable)
 - Working on the basic interaction in a simple bakery scene
-- 
-- 
-- 
 - [How to work with multiple scenes in Unity](https://www.youtube.com/watch?v=zObWVOv1GlE)
 - [How to Create a Prefab](https://docs.unity3d.com/6000.3/Documentation/Manual/CreatingPrefabs.html#:~:text=Create%20a%20prefab%20asset,-To%20create%20a&text=See%20in%20Glossary%20and%20configure,new%20variants%20from%20the%20GameObjects.)
 - [Step by Step Unity Guide](https://learn.unity.com)
@@ -105,6 +102,10 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 9 + 10 (3/24 - 4/7)
+- Event bus research
+    - [What is an Event Bus?](https://www.akamai.com/glossary/what-is-an-event-bus)
+    - [What is an event bus, what does it do, and what's it's purpose?](https://medium.com/@syed.abu.hanifah16/what-is-an-event-bus-what-it-does-and-its-purpose-a8a2437b3879)
+    - [Why don't you use an event bus?](https://discussions.unity.com/t/why-dont-you-use-eventbus/940577/2)
 - 
 - 
 - 
