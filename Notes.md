@@ -106,10 +106,13 @@ This file tracks progress, milestones, changes in development, as well as an add
     - [What is an Event Bus?](https://www.akamai.com/glossary/what-is-an-event-bus)
     - [What is an event bus, what does it do, and what's it's purpose?](https://medium.com/@syed.abu.hanifah16/what-is-an-event-bus-what-it-does-and-its-purpose-a8a2437b3879)
     - [Why don't you use an event bus?](https://discussions.unity.com/t/why-dont-you-use-eventbus/940577/2)
-- 
-- 
-- 
-- 
+- [Time in Unity](https://docs.unity3d.com/ScriptReference/Time.html)
+- Made the customer spawner actually spawn customers (3 for now)
+    - to fix: customer spawner is starting at the start of day 1, but should be when the shop opens 
+    - to fix: keydy is not buying the whiteloaf?
+- implemented most of the baking steps
+- adjusted beginning inventory numbers
+- added a "shop open" sign to allow switching into the next phase of gameplay
 - system design diagram created
 ![System Design Diagram](<System Design Diagram.png>)
 

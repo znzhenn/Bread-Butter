@@ -1,9 +1,12 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class CustomerSystem : MonoBehaviour
 {
     public List<Customer> activeCustomers = new();
+    public Customer customerData;
+    public Action<CustomerBehaviour> OnTryPurchase;
 
     public float patienceTickRate = 1f;
     private float tickTimer;
