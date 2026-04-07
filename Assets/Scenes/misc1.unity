@@ -133,11 +133,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2094139543618315271, guid: 2d98f94cffa02c74793a8005ceb0d5b0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.38
+      value: -7.84
       objectReference: {fileID: 0}
     - target: {fileID: 2094139543618315271, guid: 2d98f94cffa02c74793a8005ceb0d5b0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.07
+      value: 2.19
       objectReference: {fileID: 0}
     - target: {fileID: 2094139543618315271, guid: 2d98f94cffa02c74793a8005ceb0d5b0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -526,11 +526,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2482683156624324041, guid: ea7be6938900bbd46aea0df49c9d498a, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.78
+      value: -5.47
       objectReference: {fileID: 0}
     - target: {fileID: 2482683156624324041, guid: ea7be6938900bbd46aea0df49c9d498a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.05
+      value: 2.22
       objectReference: {fileID: 0}
     - target: {fileID: 2482683156624324041, guid: ea7be6938900bbd46aea0df49c9d498a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -608,15 +608,13 @@ MonoBehaviour:
   customerSystem: {fileID: 1443310988}
   shopSystem: {fileID: 698266625}
   orderSystem: {fileID: 2104816193}
-  availableRecipes:
-  - {fileID: 11400000, guid: bbceefa27d8fd224d9faee0519cc2703, type: 2}
+  customerProfiles:
+  - {fileID: 11400000, guid: b38360b759d9c294ba0d51835650064c, type: 2}
+  - {fileID: 11400000, guid: 2fde1bb59a6a9c443a7de0ff54ee00ce, type: 2}
+  - {fileID: 11400000, guid: 7a8c28766b6f10d44a1014cb3b02cd22, type: 2}
   customerPrefab: {fileID: 1896332614}
   spawnPoint: {fileID: 1146232223}
   spawnInterval: 5
-  names:
-  - Alice
-  - Bob
-  - Charlie
 --- !u!4 &667854837
 Transform:
   m_ObjectHideFlags: 0
