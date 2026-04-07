@@ -105,19 +105,18 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 9 + 10 (3/24 - 4/7)
-- changes
+- system design diagram created
 - 
 - 
 - 
 - 
 
-**to-do list**
 
 
 
 
 
-## Week 11 ()
+## Week 11 (4/8 - 4/14)
 - changes
 - 
 - 
