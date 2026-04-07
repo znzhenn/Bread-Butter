@@ -113,9 +113,8 @@ This file tracks progress, milestones, changes in development, as well as an add
 - implemented most of the baking steps
 - adjusted beginning inventory numbers
 - added a "shop open" sign to allow switching into the next phase of gameplay
-- system design diagram created
-![System Design Diagram](<System Design Diagram.png>)
-
+- full system map created
+![FSM](FSM.png)
 
 
 
