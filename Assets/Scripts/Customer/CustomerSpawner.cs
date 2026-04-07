@@ -15,7 +15,7 @@ public class CustomerSpawner : MonoBehaviour
     public float spawnInterval = 5f;
     private float timer;
 
-    public string[] names = { "Alice", "Bob", "Charlie" };
+    public string[] names = { "Ari", "Wendy", "Loosha" };
 
     void Start()
     {
