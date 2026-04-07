@@ -11,6 +11,12 @@ public class MixingBowl : Interactable
     {
         Inventory inventory = FindFirstObjectByType<Inventory>();
 
+        if (inventory == null)
+        {
+            Debug.LogWarning("Inventory not found!");
+            return;
+        }
+
         if (inventory.HasItem(flour,1) &&
             inventory.HasItem(water,1) &&
             inventory.HasItem(yeast,1))

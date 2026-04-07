@@ -10,9 +10,15 @@ public class DisplayCase : Interactable
     {
         Inventory inventory = FindFirstObjectByType<Inventory>();
 
+        if (inventory == null)
+        {
+            Debug.LogWarning("No Inventory found.");
+            return;
+        }
+
         foreach (var item in new List<ItemData>(inventory.items.Keys))
         {
-            if (System.Array.Exists(acceptableBreads, b => b == item))
+            if (System.Array.Exists(acceptableBreads, bread => bread == item))
             {
                 inventory.RemoveItem(item, 1);
                 storedBread.Add(item);

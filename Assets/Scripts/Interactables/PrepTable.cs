@@ -9,6 +9,12 @@ public class PrepTable : Interactable
     {
         Inventory inventory = FindFirstObjectByType<Inventory>();
 
+        if (inventory == null)
+        {
+            Debug.LogWarning("No Inventory found.");
+            return;
+        }
+
         if (inventory.HasItem(dough, 1))
         {
             inventory.RemoveItem(dough, 1);
