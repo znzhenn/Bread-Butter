@@ -119,10 +119,16 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 11 (4/8 - 4/14)
-- final assets selected
+- Final Assets Selected
 - [Rigidbody in Unity](https://www.youtube.com/watch?v=Y3xkgpCukow)
 - [Top Down Tutorial Series](https://www.youtube.com/watch?v=HAVp6Z8b4xA&list=PLaaFfzxy_80HtVvBnpK_IjSC8_Y9AOhuP)
-- character created, movement enabled
+- Character created
+- [How to Setup Animator and Animations in Unity 2D](https://www.youtube.com/watch?v=AdQz2wStdLY)
+- [Different ways to annimate chracters](https://www.youtube.com/watch?v=IXwEsV8yXk4)
+- [Unity Manual on Annimations](https://docs.unity3d.com/Manual/class-Transition.html?ampDeviceId=6428826b-cfa3-4df7-a4c2-48a4f6240b62&ampSessionId=1776176819674&ampTimestamp=1776263286564)
+- 
+- 
+- 
 - 
 - system design diagram implemented
 ![system design diagram](<System Design  Diagram.png>)
@@ -174,17 +180,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 
 - 
 - 
-**to-do list**
-
-
-
-
-## Week 16 ()
-- changes
-- 
-- 
-- 
--
 **to-do list**
 
 
