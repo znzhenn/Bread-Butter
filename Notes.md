@@ -126,10 +126,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [How to Setup Animator and Animations in Unity 2D](https://www.youtube.com/watch?v=AdQz2wStdLY)
 - [Different ways to annimate chracters](https://www.youtube.com/watch?v=IXwEsV8yXk4)
 - [Unity Manual on Annimations](https://docs.unity3d.com/Manual/class-Transition.html?ampDeviceId=6428826b-cfa3-4df7-a4c2-48a4f6240b62&ampSessionId=1776176819674&ampTimestamp=1776263286564)
-- 
-- 
-- 
-- 
 - system design diagram implemented
 ![system design diagram](<System Design  Diagram.png>)
 
@@ -143,13 +139,16 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 
-## Week 12 ()
+## Week 12 (4/15 - 4/21)
 - changes
 - 
 - 
 - 
 -
 **to-do list**
+- explain the game logic
+- how are certain things triggered, how do you gain points or progress?
+- work out the game logic and implement it
 
 
 
