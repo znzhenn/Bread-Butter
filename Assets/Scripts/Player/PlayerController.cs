@@ -3,12 +3,16 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
-
+    [SerializeField] private float moveSpeed = 5f;
     private Rigidbody2D rb;
     private Vector2 movement;
 
     private PlayerInputActions inputActions;
+
+    void Start()
+    {
+      rb = GetComponent<Rigidbody2D>();  
+    }
 
     void Awake()
     {
@@ -28,6 +32,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        rb.linearVelocity = movement * moveSpeed;
         movement = inputActions.Player.Move.ReadValue<Vector2>();
         /*if (movement != Vector2.zero)
         {
@@ -38,5 +43,10 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    }
+
+    public void Move(InputAction.CallbackContext context)
+    {
+        movement = context.ReadValue<Vector2>();
     }
 }
