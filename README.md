@@ -101,3 +101,11 @@ To keep the project achievable within the intended timeframe:
 - Simplified baking mechanics
 - Simplified customer interactions
 - System functionality prioritized over visual polish
+
+
+
+
+## System Design  Diagram
+This diagram represents the high-level system architecture of Bread & Butter, illustrating how player input flows through core gameplay systems, driving baking, customer interactions, and progression.
+
+![System Design Diagram](<System Design  Diagram.png>)
