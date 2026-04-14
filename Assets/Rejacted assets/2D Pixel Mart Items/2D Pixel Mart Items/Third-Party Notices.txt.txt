@@ -1,0 +1,10 @@
+THIRD PARTY LICENSE NOTICE
+
+All assets included in this package 
+are original creations by Mero Store Studios.
+
+They are free to use in both personal and commercial Unity projects.  
+Resale or redistribution of these assets as standalone files is prohibited.  
+They must be used as part of a larger project or game.
+
+© 2025 Mero Store Studios. All Rights Reserved.
