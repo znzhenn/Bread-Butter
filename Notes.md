@@ -119,8 +119,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 11 (4/8 - 4/14)
-- changes
-- 
+- final assets selected
+- [Rigidbody in Unity](https://www.youtube.com/watch?v=Y3xkgpCukow)
+- [Top Down Tutorial Series](https://www.youtube.com/watch?v=HAVp6Z8b4xA&list=PLaaFfzxy_80HtVvBnpK_IjSC8_Y9AOhuP)
 - 
 - 
 - system design diagram implemented
@@ -128,10 +129,8 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 **to-do list**
 - build a system diagram of how unity works (how they interact with the unity engine to make the game work)
-- build something out without the squares
 - how the game dynamics interact with the game system
 - gameplay + system design
-- visuals
 - my components x unity engine
 - lean into research and system design
 
