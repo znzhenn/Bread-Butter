@@ -122,7 +122,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 - final assets selected
 - [Rigidbody in Unity](https://www.youtube.com/watch?v=Y3xkgpCukow)
 - [Top Down Tutorial Series](https://www.youtube.com/watch?v=HAVp6Z8b4xA&list=PLaaFfzxy_80HtVvBnpK_IjSC8_Y9AOhuP)
-- 
+- character created, movement enabled
 - 
 - system design diagram implemented
 ![system design diagram](<System Design  Diagram.png>)
