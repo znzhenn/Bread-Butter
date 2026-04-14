@@ -326,7 +326,7 @@ MonoBehaviour:
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
   m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
+  m_Camera: {fileID: 330357388}
 --- !u!50 &880555601
 Rigidbody2D:
   serializedVersion: 5
