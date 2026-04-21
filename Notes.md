@@ -142,8 +142,8 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [Player Movement with Unity Input System](https://youtu.be/DQY62meLVCk?si=EcEAUAlMge8xt1h0)
 - [AutoTile](https://www.youtube.com/watch?v=vck-rSThycA)
 - [Cinemachine Overview in Unity](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/index.html)
-- 
-- 
+- Player movement and camera sorted
+- [Character moving across scenes](https://discussions.unity.com/t/how-do-i-get-my-character-from-one-scene-to-another/934958)
 - 
 - 
 **to-do list**
@@ -154,7 +154,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 
-## Week 13 ()
+## Week 13 (4/22 - 4/28)
 - changes
 - 
 - 

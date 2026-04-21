@@ -621,7 +621,7 @@ GameObject:
   - component: {fileID: 926066650}
   - component: {fileID: 926066651}
   m_Layer: 0
-  m_Name: T1
+  m_Name: bakery interior
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
