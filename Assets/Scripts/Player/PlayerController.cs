@@ -8,10 +8,12 @@ public class PlayerController : MonoBehaviour
     private Vector2 movement;
 
     private PlayerInputActions inputActions;
+    private Animator animator;
 
     void Start()
     {
       rb = GetComponent<Rigidbody2D>();  
+      animator = GetComponent<Animator>();
     }
 
     void Awake()
@@ -47,6 +49,19 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
+        animator.SetBool("isWalking", true);
+
+        if (context.canceled)
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetFloat("InputX", movement.x);
+            animator.SetFloat("InputY", movement.y);
+            
+            return;
+        }
         movement = context.ReadValue<Vector2>();
+        animator.SetFloat("InputX", movement.x);
+        animator.SetFloat("InputY", movement.y);
     }
+
 }
