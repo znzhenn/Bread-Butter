@@ -126,10 +126,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [How to Setup Animator and Animations in Unity 2D](https://www.youtube.com/watch?v=AdQz2wStdLY)
 - [Different ways to annimate chracters](https://www.youtube.com/watch?v=IXwEsV8yXk4)
 - [Unity Manual on Annimations](https://docs.unity3d.com/Manual/class-Transition.html?ampDeviceId=6428826b-cfa3-4df7-a4c2-48a4f6240b62&ampSessionId=1776176819674&ampTimestamp=1776263286564)
-- 
-- 
-- 
-- 
 - system design diagram implemented
 ![system design diagram](<System Design  Diagram.png>)
 
@@ -141,19 +137,24 @@ This file tracks progress, milestones, changes in development, as well as an add
 - lean into research and system design
 
 
-
-
-## Week 12 ()
-- changes
+## Week 12 (4/15 - 4/21)
+- 4 Directional Character Implemented, Animations all set-up
+- [Player Movement with Unity Input System](https://youtu.be/DQY62meLVCk?si=EcEAUAlMge8xt1h0)
+- [AutoTile](https://www.youtube.com/watch?v=vck-rSThycA)
+- [Cinemachine Overview in Unity](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/index.html)
+- Player movement and camera sorted
+- [Character moving across scenes](https://discussions.unity.com/t/how-do-i-get-my-character-from-one-scene-to-another/934958)
 - 
 - 
-- 
--
 **to-do list**
+- explain the game logic
+- how are certain things triggered, how do you gain points or progress?
+- work out the game logic and implement it
 
 
 
-## Week 13 ()
+
+## Week 13 (4/22 - 4/28)
 - changes
 - 
 - 
