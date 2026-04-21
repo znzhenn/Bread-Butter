@@ -1,5 +1,12 @@
 fileFormatVersion: 2
 guid: 31e24ed712cbf3b4595a8dbc9b18aa9c
+AssetOrigin:
+  serializedVersion: 1
+  productId: 212921
+  packageName: 2D Cozy RPG - Farming - Tilesets - Characters - Pixelart MAIN BUNDLE
+  packageVersion: 3.1.2
+  assetPath: Assets/Gif/Ruccho/FangAutoTile/Sample/MapChip_pipo/base.png
+  uploadId: 898464
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -7090,6 +7097,19 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 1
   - serializedVersion: 4
     buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 4
+    buildTarget: WebGL
     maxTextureSize: 8192
     resizeAlgorithm: 0
     textureFormat: -1
@@ -60851,10 +60871,3 @@ TextureImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 212921
-  packageName: 2D Cozy RPG - Farming - Tilesets - Characters - Pixelart MAIN BUNDLE
-  packageVersion: 3.1.2
-  assetPath: Assets/Gif/Ruccho/FangAutoTile/Sample/MapChip_pipo/base.png
-  uploadId: 898464
