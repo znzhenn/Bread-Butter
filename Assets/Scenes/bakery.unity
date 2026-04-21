@@ -376,7 +376,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 10
+  orthographic size: 3
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -401,7 +401,7 @@ Transform:
   m_GameObject: {fileID: 330357386}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4892566, y: -2.8512902, z: -10}
+  m_LocalPosition: {x: 0.171, y: 0.558, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -836,7 +836,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!212 &1074368422
 SpriteRenderer:
@@ -1976,7 +1976,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 13
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1986,7 +1986,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 19
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1996,7 +1996,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 11
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2156,7 +2156,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 22
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2165,18 +2165,18 @@ Tilemap:
   - first: {x: 0, y: 0, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileIndex: 1
+      m_TileSpriteIndex: 10
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
-      m_AllTileFlags: 2147483651
+      m_AllTileFlags: 1073741825
   - first: {x: 1, y: 0, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 14
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2336,7 +2336,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 12
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2346,7 +2346,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 18
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2356,7 +2356,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 0
-      m_TileSpriteIndex: 15
+      m_TileSpriteIndex: 9
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -2974,8 +2974,10 @@ Tilemap:
       m_AllTileFlags: 2147483651
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 180
+  - m_RefCount: 179
     m_Data: {fileID: 11400000, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: be92a291a19a6a54f8c66690c04ac9ec, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 0
     m_Data: {fileID: 0}
@@ -2995,33 +2997,33 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
-  - m_RefCount: 8
+  - m_RefCount: 1
+    m_Data: {fileID: -5968995677535368195, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 2746820424589462875, guid: 26d435702dedb784694895af12418eff, type: 3}
+  - m_RefCount: 1
+    m_Data: {fileID: 1418040689468804802, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 1016334762566557890, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
+  - m_RefCount: 1
+    m_Data: {fileID: 8760889671804721918, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
+  - m_RefCount: 9
     m_Data: {fileID: 2202106997137582970, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
-  - m_RefCount: 128
+  - m_RefCount: 119
     m_Data: {fileID: -2629841565590211591, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 6058652981783387540, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: -8917921481600315669, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
-  - m_RefCount: 16
+  - m_RefCount: 17
     m_Data: {fileID: -2610136757266212845, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
-  - m_RefCount: 16
+  - m_RefCount: 17
     m_Data: {fileID: 5573732909441102518, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 6704579057295343717, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: -8797139113561700750, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
-  - m_RefCount: 8
+  - m_RefCount: 9
     m_Data: {fileID: -3982584094352133593, guid: 0e42e3dc1a0872e40af97d2146f51d56, type: 2}
   m_TileMatrixArray:
   - m_RefCount: 180
@@ -3151,7 +3153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Unity.Cinemachine::Unity.Cinemachine.CinemachineFollow
   TrackerSettings:
     BindingMode: 4
-    PositionDamping: {x: 1, y: 1, z: 1}
+    PositionDamping: {x: 0, y: 0, z: 0}
     AngularDampingMode: 0
     RotationDamping: {x: 1, y: 1, z: 1}
     QuaternionDamping: 1
@@ -3181,7 +3183,7 @@ MonoBehaviour:
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 60
-    OrthographicSize: 10
+    OrthographicSize: 3
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -3230,7 +3232,7 @@ MonoBehaviour:
   Damping: 0.5
   SlowingDistance: 5
   OversizeWindow:
-    Enabled: 0
+    Enabled: 1
     MaxWindowSize: 0
     Padding: 0
   m_LegacyMaxWindowSize: -2
