@@ -141,8 +141,11 @@ This file tracks progress, milestones, changes in development, as well as an add
 - 4 Directional Character Implemented, Animations all set-up
 - [Player Movement with Unity Input System](https://youtu.be/DQY62meLVCk?si=EcEAUAlMge8xt1h0)
 - [AutoTile](https://www.youtube.com/watch?v=vck-rSThycA)
+- [Cinemachine Overview in Unity](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/index.html)
 - 
--
+- 
+- 
+- 
 **to-do list**
 - explain the game logic
 - how are certain things triggered, how do you gain points or progress?
