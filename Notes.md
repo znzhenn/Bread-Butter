@@ -137,11 +137,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - lean into research and system design
 
 
-
-
 ## Week 12 (4/15 - 4/21)
-- changes
-- 
+- 4 Directional Character Implemented, Animations all set-up
+- [Player Movement with Unity Input System](https://youtu.be/DQY62meLVCk?si=EcEAUAlMge8xt1h0)
 - 
 - 
 -

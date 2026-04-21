@@ -1,8 +1,5 @@
 ﻿<Solution>
   <Project Path="Assembly-CSharp.csproj" />
   <Project Path="FangAutoTile.csproj" />
-  <Project Path="HSVPicker.csproj" />
   <Project Path="FangAutoTile.Editor.csproj" />
-  <Project Path="HSVPicker.Editors.csproj" />
-  <Project Path="Assembly-CSharp-Editor.csproj" />
 </Solution>
