@@ -5,47 +5,49 @@ using UnityEngine;
 public class InventoryController : MonoBehaviour
 {
     private ItemDictionary itemDictionary;
+
     public GameObject inventoryPanel;
     public GameObject slotPrefab;
-    public int slotCount;
     public GameObject[] itemPrefabs;
+    public int slotCount;
+    
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         itemDictionary = FindObjectOfType<ItemDictionary>();
 
-        for(int i = 0; i< slotCount; i++)
-        {
-            Instantiate(slotPrefab, inventoryPanel.transform);
-        }
-
-        //preload if it already exists
-        string savePath = System.IO.Path.Combine(Application.persistentDataPath, "saveData.json");
-        if(System.IO.File.Exists(savePath))
-        {
-           Debug.Log("No Save found --> preloading test");
-           for(int i = 0; i <slotCount; i++)
-            {
-                if(i< itemPrefabs.Length)
-                {
-                    Slot slot = inventoryPanel.transform.GetChild(i).GetComponent<Slot>();
-                    GameObject item = Instantiate(itemPrefabs[i], slot.transform);
-                    item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-                    slot.currentItem = item;
-                }
-            }
-        }
-        // for(int i = 0; i <slotCount; i++)
+        // for(int i = 0; i< slotCount; i++)
         // {
-        //     Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
-        //     if(i < itemPrefabs.Length)
+        //     Instantiate(slotPrefab, inventoryPanel.transform);
+        // }
+
+        // //preload if it already exists
+        // string savePath = System.IO.Path.Combine(Application.persistentDataPath, "saveData.json");
+        // if(System.IO.File.Exists(savePath))
+        // {
+        //    Debug.Log("No Save found --> preloading test");
+        //    for(int i = 0; i <slotCount; i++)
         //     {
-        //         GameObject item = Instantiate(itemPrefabs[i], slot.transform);
-        //         item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        //         slot.currentItem = item;
+        //         if(i< itemPrefabs.Length)
+        //         {
+        //             Slot slot = inventoryPanel.transform.GetChild(i).GetComponent<Slot>();
+        //             GameObject item = Instantiate(itemPrefabs[i], slot.transform);
+        //             item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        //             slot.currentItem = item;
+        //         }
         //     }
         // }
+        for(int i = 0; i <slotCount; i++)
+        {
+            Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
+            if(i < itemPrefabs.Length)
+            {
+                GameObject item = Instantiate(itemPrefabs[i], slot.transform);
+                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = item;
+            }
+        }
         
     }
     
