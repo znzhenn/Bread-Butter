@@ -14,8 +14,11 @@ public class SaveController : MonoBehaviour
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventoryController = FindObjectOfType<InventoryController>();
 
+<<<<<<< Updated upstream
         yield return null;
 
+=======
+>>>>>>> Stashed changes
         LoadGame();
 
         SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
@@ -43,6 +46,7 @@ public class SaveController : MonoBehaviour
             SaveData saveData = JsonUtility.FromJson<SaveData>(File.ReadAllText(saveLocation));
             GameObject.FindGameObjectWithTag("Player").transform.position = saveData.playerPosition;
             FindFirstObjectByType<CinemachineConfiner2D>().BoundingShape2D = GameObject.Find(saveData.mapBoundary).GetComponent<PolygonCollider2D>();
+<<<<<<< Updated upstream
             if(saveData.inventorySaveData != null && saveData.inventorySaveData.Count > 0)
             {
                 inventoryController.SetInventoryItems(saveData.inventorySaveData);
@@ -51,6 +55,9 @@ public class SaveController : MonoBehaviour
             {
                 Debug.Log("Save file has no inventory data → skipping load");
             }
+=======
+            inventoryController.SetInventoryItems(saveData.inventorySaveData);
+>>>>>>> Stashed changes
         }
         else
         {

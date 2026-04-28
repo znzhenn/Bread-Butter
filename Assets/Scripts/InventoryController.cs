@@ -15,7 +15,12 @@ public class InventoryController : MonoBehaviour
     {
         itemDictionary = FindObjectOfType<ItemDictionary>();
 
+<<<<<<< Updated upstream
         for(int i = 0; i< slotCount; i++)
+=======
+        /*
+        for(int i = 0; i <slotCount; i++)
+>>>>>>> Stashed changes
         {
             Instantiate(slotPrefab, inventoryPanel.transform);
         }
@@ -35,6 +40,7 @@ public class InventoryController : MonoBehaviour
                     slot.currentItem = item;
                 }
             }
+<<<<<<< Updated upstream
         }
         // for(int i = 0; i <slotCount; i++)
         // {
@@ -46,6 +52,9 @@ public class InventoryController : MonoBehaviour
         //         slot.currentItem = item;
         //     }
         // }
+=======
+        }*/
+>>>>>>> Stashed changes
         
     }
     
