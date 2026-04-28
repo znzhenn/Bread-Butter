@@ -144,8 +144,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [Cinemachine Overview in Unity](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/index.html)
 - Player movement and camera sorted
 - [Character moving across scenes](https://discussions.unity.com/t/how-do-i-get-my-character-from-one-scene-to-another/934958)
-- 
-- 
 **to-do list**
 - explain the game logic
 - how are certain things triggered, how do you gain points or progress?
@@ -155,11 +153,14 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 
 ## Week 13 (4/22 - 4/28)
-- changes
+- player animations corrected
+- created bakery tilemap (scene 1)
+- player starting position adjusted
+- player menu implemented
+- [Everything you need to know to SAVE and LOAD your game in Unity](https://www.youtube.com/watch?v=1mf730eb5Wo)
+- The importance of System.Serializable
+- Inventory has slots, and can hold items
 - 
-- 
-- 
-- **to-do list**
 
 
 

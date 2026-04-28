@@ -4,42 +4,38 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 5f;
+
     private Rigidbody2D rb;
     private Vector2 movement;
 
     private PlayerInputActions inputActions;
     private Animator animator;
 
-    void Start()
-    {
-      rb = GetComponent<Rigidbody2D>();  
-      animator = GetComponent<Animator>();
-    }
-
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         inputActions = new PlayerInputActions();
     }
 
     void OnEnable()
     {
+        if (inputActions == null)
+            inputActions = new PlayerInputActions();
+
         inputActions.Player.Enable();
     }
 
     void OnDisable()
     {
-        inputActions.Player.Disable();
+        if (inputActions != null)
+            inputActions.Player.Disable();
     }
 
     void Update()
     {
-        rb.linearVelocity = movement * moveSpeed;
         movement = inputActions.Player.Move.ReadValue<Vector2>();
-        /*if (movement != Vector2.zero)
-        {
-            Debug.Log(movement);
-        }*/
+        rb.linearVelocity = movement * moveSpeed;
     }
 
     void FixedUpdate()
@@ -49,19 +45,18 @@ public class PlayerController : MonoBehaviour
 
     public void Move(InputAction.CallbackContext context)
     {
-        animator.SetBool("isWalking", true);
+        if (animator == null) return;
 
         if (context.canceled)
         {
             animator.SetBool("isWalking", false);
-            animator.SetFloat("InputX", movement.x);
-            animator.SetFloat("InputY", movement.y);
-            
             return;
         }
+
         movement = context.ReadValue<Vector2>();
+
+        animator.SetBool("isWalking", true);
         animator.SetFloat("InputX", movement.x);
         animator.SetFloat("InputY", movement.y);
     }
-
 }
