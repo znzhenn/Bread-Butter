@@ -32,6 +32,7 @@ public class ItemDictionary : MonoBehaviour
         {
             Debug.LogWarning($"Item with ID {itemID} not ound in dictionary");
         }
+        return prefab;
     }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
