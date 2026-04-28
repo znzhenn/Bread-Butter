@@ -158,6 +158,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 - player starting position adjusted
 - player menu implemented
 - [Everything you need to know to SAVE and LOAD your game in Unity](https://www.youtube.com/watch?v=1mf730eb5Wo)
+- The importance of System.Serializable
 - 
 - 
 
