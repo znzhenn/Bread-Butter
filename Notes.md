@@ -156,7 +156,7 @@ This file tracks progress, milestones, changes in development, as well as an add
 - player animations corrected
 - created bakery tilemap (scene 1)
 - player starting position adjusted
-- 
+- player menu
 - 
 - 
 
