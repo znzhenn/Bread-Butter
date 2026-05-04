@@ -31,40 +31,20 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
-        // 🔴 SAFELY get drop slot
-        Slot dropSlot = null;
-
-        if (eventData.pointerEnter != null)
+        Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
+        if(dropSlot == null)
         {
-            dropSlot = eventData.pointerEnter.GetComponent<Slot>();
-
-            // fallback to parent ONLY if needed
-            if (dropSlot == null)
+            GameObject item = eventData.pointerEnter;
+            if(item != null)
             {
-                dropSlot = eventData.pointerEnter.GetComponentInParent<Slot>();
+                dropSlot = item.GetComponentInParent<Slot>();
             }
         }
+        Slot originalSlot = originalParent.GetComponent<Slot>();
 
-        // 🔴 SAFELY get original slot
-        Slot originalSlot = null;
-
-        if (originalParent != null)
+        if(dropSlot != null)
         {
-            originalSlot = originalParent.GetComponent<Slot>();
-        }
-
-        // 🔴 HARD GUARD (prevents crash)
-        if (originalSlot == null)
-        {
-            Debug.LogError("Original slot missing or invalid!");
-            transform.SetParent(originalParent);
-            GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            return;
-        }
-
-        if (dropSlot != null)
-        {
-            if (dropSlot.currentItem != null)
+            if(dropSlot.currentItem != null)
             {
                 // swap
                 dropSlot.currentItem.transform.SetParent(originalSlot.transform);
@@ -84,6 +64,8 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             transform.SetParent(originalParent);
         }
 
-        GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+        GetComponent<RectTransform>().anchoredPosition = Vector2.zero; 
+
+        
     }
 }

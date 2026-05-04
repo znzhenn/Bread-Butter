@@ -15,7 +15,7 @@ public class InventoryController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        itemDictionary = FindObjectOfType<ItemDictionary>();
+        itemDictionary = FindFirstObjectByType<ItemDictionary>();
 
         // for(int i = 0; i< slotCount; i++)
         // {
@@ -44,6 +44,7 @@ public class InventoryController : MonoBehaviour
             if(i < itemPrefabs.Length)
             {
                 GameObject item = Instantiate(itemPrefabs[i], slot.transform);
+                // centers the item in the slot
                 item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                 slot.currentItem = item;
             }
