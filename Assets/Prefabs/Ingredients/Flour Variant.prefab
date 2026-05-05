@@ -8,6 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 350955920360360387, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: Name
+      value: Flour
+      objectReference: {fileID: 0}
     - target: {fileID: 2248201165025455385, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Sprite
       value: 

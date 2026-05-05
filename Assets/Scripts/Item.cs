@@ -7,7 +7,7 @@ public class Item : MonoBehaviour
     public int ID;
     public string Name;
 
-    public virtual void pick()
+    public virtual void pickUp()
     {
         Sprite itemIcon = GetComponent<UnityEngine.UI.Image>()?.sprite;
         if(ItemPickupUIController.Instance != null)

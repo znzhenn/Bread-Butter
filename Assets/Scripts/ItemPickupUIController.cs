@@ -10,7 +10,7 @@ public class ItemPickupUIController : MonoBehaviour
 
     public GameObject popupPrefab;
     public int maxPopupCount = 4;
-    public float popupDuration;
+    public float popupDuration = 2.5f;
 
     private readonly Queue<GameObject> activePopups = new();
     // Start is called once before the first execution of Update after the MonoBehaviour is created
