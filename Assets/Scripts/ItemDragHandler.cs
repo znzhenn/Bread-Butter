@@ -47,10 +47,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
             if(dropSlot.currentItem != null)
             {
                 // swap
-                dropSlot.currentItem.transform.SetParent(originalSlot.transform, false);
-                RectTransform rt = GetComponent<RectTransform>();
-                rt.localPosition = Vector3.zero;
-                rt.anchoredPosition = Vector2.zero;
+                dropSlot.currentItem.transform.SetParent(originalSlot.transform);
                 originalSlot.currentItem = dropSlot.currentItem;
                 dropSlot.currentItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
             }
@@ -59,10 +56,7 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
                 originalSlot.currentItem = null;
             }
 
-            transform.SetParent(dropSlot.transform, false);
-            RectTransform currentRt = GetComponent<RectTransform>();
-            currentRt.localPosition = Vector3.zero;
-            currentRt.anchoredPosition = Vector2.zero;
+            transform.SetParent(dropSlot.transform);
             dropSlot.currentItem = gameObject;
         }
         else
