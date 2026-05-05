@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &8317729372116470108
+--- !u!1001 &5525421253091429906
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -8,10 +8,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 350955920360360387, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
-      propertyPath: ID
-      value: 2
-      objectReference: {fileID: 0}
+    - target: {fileID: 2248201165025455385, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3413006870710782370, guid: 20877c27e914b294e84ae1c0d056650f, type: 3}
     - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -49,6 +49,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -78,11 +86,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: -4.55911
       objectReference: {fileID: 0}
     - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 4.30296
       objectReference: {fileID: 0}
     - target: {fileID: 3330665599272604773, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -96,13 +104,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4293625890560684295, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: m_Radius
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 6227005141451591803, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 935570658831797173, guid: 5d978b2ebf45ec441b41d5e19e6b247c, type: 3}
+      objectReference: {fileID: -3413006870710782370, guid: 20877c27e914b294e84ae1c0d056650f, type: 3}
     - target: {fileID: 9105958834369826422, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Name
-      value: Sponge Cake Variant
+      value: Sugar Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
