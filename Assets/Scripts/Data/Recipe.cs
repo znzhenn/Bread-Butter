@@ -16,5 +16,6 @@ public class Recipe : ScriptableObject
     public float baseValue;
 
     [Header("Timing")]
-    public float proofTime = 5f; 
+    public float proofTime; 
+    public float bakeTime;
 }
