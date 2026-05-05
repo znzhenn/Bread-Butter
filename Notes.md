@@ -163,20 +163,11 @@ This file tracks progress, milestones, changes in development, as well as an add
 
 ## Week 14
 - fun fact the inventory system was never broken and i wasted too many hours of my life on it
+- Items load into the game on start, able to be picked up
+- Inventory updates correctly with picked up items
+- 
+- 
 - 
 - 
 - 
 -
-**to-do list**
-
-
-
-## Week 15 ()
-- changes
-- 
-- 
-- 
-- 
-**to-do list**
-
-

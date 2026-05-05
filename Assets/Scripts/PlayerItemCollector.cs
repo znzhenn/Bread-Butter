@@ -12,7 +12,7 @@ public class PlayerItemCollector : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         Debug.Log("Triggered with: " + collision.name);
-        if (collision.CompareTag("Ingredient"))
+        if (collision.CompareTag("Item"))
         {
             Item item = collision.GetComponent<Item>();
             if (item != null)
@@ -20,6 +20,7 @@ public class PlayerItemCollector : MonoBehaviour
                 bool itemAdded = inventoryController.AddItem(collision.gameObject);
                 if (itemAdded)
                 {
+                    item.pickUp();
                     Destroy(collision.gameObject);
                 }
                 
