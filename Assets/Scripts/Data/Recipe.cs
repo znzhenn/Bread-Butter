@@ -2,18 +2,22 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NewRecipe", menuName = "Bakery/Recipe")]
-
 public class Recipe : ScriptableObject
 {
     public string recipeName;
-    public int difficulty; // 1-5 stars (1 is lowest - 5 is highest)
+    public int difficulty; // 1–5
     public float baseValue;
     public Sprite icon;
-    // public List<IngredientsRequired> ingredients;
-    // public Sprite icon; 
-    // public string description; // for more info (and the actual text)
 
-    [Header("Crafting")]
-    public List<ItemData> ingredients;   
-    public ItemData resultItem;        
+    [Header("Ingredients")]
+    public List<ItemData> ingredients;
+
+    [Header("Processing Times")]
+    public float kneadTime = 5f;
+    public float proofTime = 5f;
+    public float bakeTime = 20f;
+
+    [Header("Stages")]
+    public ItemData doughItem;     // after kneading
+    public ItemData resultItem;     // after baking
 }

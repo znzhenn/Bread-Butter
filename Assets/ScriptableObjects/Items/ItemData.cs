@@ -1,8 +1,11 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName="Item", menuName="Bakery/Item")]
+[CreateAssetMenu(menuName = "Items/Item Data")]
 public class ItemData : ScriptableObject
 {
+    public int ID;
     public string itemName;
-    public int sellPrice;
+    public Sprite icon;
+
+    public GameObject prefab; 
 }
