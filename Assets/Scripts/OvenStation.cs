@@ -3,28 +3,14 @@ using UnityEngine;
 
 public class OvenStation : MonoBehaviour
 {
-    private Item currentItem;
-    private float bakeTimer = 0f;
-    private bool isBaking = false;
+    public float bakeTime = 20f; // 👈 FIXES bakeTime error
 
-    public GameObject resultPrefab; // Bread
+    private bool isBaking = false;
 
     public void Interact()
     {
-        // If nothing in oven → try to add dough
-        if (!isBaking)
-        {
-            TryInsertDough();
-        }
-        else
-        {
-            // Take out bread
-            RemoveItem();
-        }
-    }
+        if (isBaking) return;
 
-    private void TryInsertDough()
-    {
         Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, 1.5f);
 
         foreach (var hit in hits)
@@ -33,40 +19,39 @@ public class OvenStation : MonoBehaviour
 
             if (item != null && item.Name == "Dough")
             {
-                currentItem = item;
-                StartCoroutine(Bake());
+                StartCoroutine(Bake(item)); // 👈 this now exists
                 return;
             }
         }
 
-        Debug.Log("No dough to bake!");
+        Debug.Log("No dough found!");
     }
 
-    private IEnumerator Bake()
+    private IEnumerator Bake(Item doughItem) // 👈 FIXES Bake() error
     {
         isBaking = true;
-        bakeTimer = 0f;
 
-        Debug.Log("Started baking...");
+        BakingItem bakingItem = doughItem.GetComponent<BakingItem>();
 
-        while (true)
+        if (bakingItem == null)
         {
-            bakeTimer += Time.deltaTime;
-            yield return null;
+            Debug.LogError("No BakingItem on dough!");
+            isBaking = false;
+            yield break;
         }
-    }
 
-    private void RemoveItem()
-    {
-        StopAllCoroutines();
+        Recipe recipe = bakingItem.recipe;
 
-        Destroy(currentItem.gameObject);
+        Debug.Log("Baking " + recipe.recipeName);
 
-        Instantiate(resultPrefab, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(bakeTime);
 
-        Debug.Log("Removed after " + bakeTimer + " seconds");
+        Destroy(doughItem.gameObject);
+
+        Instantiate(recipe.resultPrefab, transform.position, Quaternion.identity);
+
+        Debug.Log(recipe.recipeName + " finished!");
 
         isBaking = false;
-        currentItem = null;
     }
 }

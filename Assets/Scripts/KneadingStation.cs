@@ -74,24 +74,32 @@ public class KneadingStation : MonoBehaviour
     }
 
     private IEnumerator Process(Recipe recipe, List<Item> items)
-{
-    isProcessing = true;
+    {
+        isProcessing = true;
 
-    Debug.Log("Kneading instantly...");
+        Debug.Log("kneading instantly...");
 
-    // Consume ingredients immediately
-    ConsumeIngredients(recipe, items);
+        ConsumeIngredients(recipe, items);
 
-    // Spawn dough immediately
-    GameObject dough = Instantiate(recipe.resultPrefab, transform.position, Quaternion.identity);
+        // Spawn dough immediately
+        GameObject dough = Instantiate(recipe.resultPrefab, transform.position, Quaternion.identity);
+        BakingItem bakingItem = dough.GetComponent<BakingItem>();
+        if (bakingItem != null)
+        {
+            bakingItem.recipe = recipe;
+        }
+        else
+        {
+            Debug.LogError("Dough prefab is missing BakingItem script!");
+        }
 
-    Debug.Log("Proofing...");
-    yield return new WaitForSeconds(recipe.proofTime);
+        Debug.Log("Proofing...");
+        yield return new WaitForSeconds(recipe.proofTime);
 
-    Debug.Log("Dough finished proofing!");
+        Debug.Log("Dough finished proofing!");
 
-    isProcessing = false;
-}
+        isProcessing = false;
+    }
 
     private void ConsumeIngredients(Recipe recipe, List<Item> items)
     {
