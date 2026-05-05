@@ -31,22 +31,22 @@ public class InventoryController : MonoBehaviour
         
     }
     
-    // public bool AddItem(GameObject itemPrefab)
-    // {
-    //     foreach(Transform slotTransform in inventoryPanel.transform)
-    //     {
-    //         Slot slot = slotTransform.GetComponent<Slot>();
-    //         if(slot != null && slot.currentItem == null)
-    //         {
-    //             GameObject item = Instantiate(itemPrefab, slotTransform);
-    //             item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-    //             slot.currentItem = item;
-    //             return true; // item added
-    //         }
-    //     }
-    //     Debug.Log("Inventory is full!");
-    //     return false; // full inventory
-    // }
+    public bool AddItem(GameObject itemPrefab)
+    {
+        foreach(Transform slotTransform in inventoryPanel.transform)
+        {
+            Slot slot = slotTransform.GetComponent<Slot>();
+            if(slot != null && slot.currentItem == null)
+            {
+                GameObject item = Instantiate(itemPrefab, slotTransform);
+                item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
+                slot.currentItem = item;
+                return true; // item added
+            }
+        }
+        Debug.Log("Inventory is full!");
+        return false; // full inventory
+    }
 
 
     public List<InventorySaveData> GetInventoryItems()
@@ -71,10 +71,10 @@ public class InventoryController : MonoBehaviour
         //     Destroy(child.gameObject);
         // }
 
-        for(int i = 0; i <slotCount; i++)
-        {
-            Instantiate(slotPrefab, inventoryPanel.transform);
-        }
+        // for(int i = 0; i <slotCount; i++)
+        // {
+        //     Instantiate(slotPrefab, inventoryPanel.transform);
+        // }
 
         foreach(InventorySaveData data in inventorySaveData)
         {
