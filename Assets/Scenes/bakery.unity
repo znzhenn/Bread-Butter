@@ -2303,7 +2303,7 @@ GameObject:
   - component: {fileID: 1013507321}
   - component: {fileID: 1013507323}
   m_Layer: 5
-  m_Name: MapTab
+  m_Name: RecipeTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2830,7 +2830,7 @@ GameObject:
   - component: {fileID: 1192161529}
   - component: {fileID: 1192161528}
   m_Layer: 5
-  m_Name: MapPage
+  m_Name: RecipePage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7502,7 +7502,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAP
+  m_text: RECIPES
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
   m_sharedMaterial: {fileID: 5166580554649193542, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
@@ -7769,7 +7769,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: MAP
+  m_text: Recipes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
   m_sharedMaterial: {fileID: 5166580554649193542, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
