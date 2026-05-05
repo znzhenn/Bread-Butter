@@ -34,28 +34,39 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        movement = inputActions.Player.Move.ReadValue<Vector2>();
-        rb.linearVelocity = movement * moveSpeed;
+        if (PauseController.IsGamePaused)
+        {
+            rb.linearVelocity = Vector2.zero;
+            movement = Vector2.zero;
+            animator.SetBool("isWalking",false);
+            return;
+        } 
+            rb.linearVelocity = movement * moveSpeed;
+            animator.SetBool("isWalking",rb.linearVelocity.magnitude > 0.1f);
+        
     }
 
-    void FixedUpdate()
-    {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
-    }
+    // void FixedUpdate()
+    // {
+    //     if (PauseController.IsGamePaused)
+    //     {
+    //         return;
+    //     }
+
+    //     rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    // }
 
     public void Move(InputAction.CallbackContext context)
     {
-        if (animator == null) return;
-
+        
         if (context.canceled)
         {
             animator.SetBool("isWalking", false);
-            return;
+            animator.SetFloat("InputX", movement.x);
+            animator.SetFloat("InputY", movement.y);
         }
 
         movement = context.ReadValue<Vector2>();
-
-        animator.SetBool("isWalking", true);
         animator.SetFloat("InputX", movement.x);
         animator.SetFloat("InputY", movement.y);
     }

@@ -14,9 +14,12 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Keyboard.current.tabKey.wasPressedThisFrame)
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
         {
-            menuCanvas.SetActive(!menuCanvas.activeSelf);
+            bool isOpening = !menuCanvas.activeSelf;
+
+            menuCanvas.SetActive(isOpening);
+            PauseController.SetMenuPause(isOpening);
         }
     }
 }
