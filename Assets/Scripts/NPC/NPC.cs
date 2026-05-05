@@ -1,31 +1,32 @@
 using System.Collections;
-using System.ComponentModel;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class NPC : MonoBehaviour, Interactable
 {
-   public NPCDialogue dialogueData;
-   public GameObject dialoguePanel;
-   public TMPro.TMP_Text dialogueText, nameText;
+    public NPCDialogue dialogueData;
+    public GameObject dialoguePanel;
+    public TMPro.TMP_Text dialogueText, nameText;
     public Image portraitImage;
 
     private int dialogueIndex;
     private bool isTyping, isDialogueActive;
 
-    public bool Interact()
+    public bool CanInteract()
     {
         return !isDialogueActive;
     }
 
-    public bool CanInteract()
+    public void Interact()
     {
         if (dialogueData == null || (PauseController.IsGamePaused && !isDialogueActive))
+            return;
+
         if (isDialogueActive)
         {
             NextLine();
         }
-        else 
+        else
         {
             StartDialogue();
         }
@@ -39,8 +40,9 @@ public class NPC : MonoBehaviour, Interactable
         nameText.SetText(dialogueData.npcName);
         portraitImage.sprite = dialogueData.npcPortrait;
         dialoguePanel.SetActive(true);
-        PauseController.SetPause(true);
-        
+
+        PauseController.SetDialoguePause(true);
+
         StartCoroutine(TypeLine());
     }
 
@@ -52,7 +54,6 @@ public class NPC : MonoBehaviour, Interactable
             dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
             isTyping = false;
         }
-
         else if (++dialogueIndex < dialogueData.dialogueLines.Length)
         {
             StartCoroutine(TypeLine());
@@ -62,25 +63,43 @@ public class NPC : MonoBehaviour, Interactable
             EndDialogue();
         }
     }
+
     IEnumerator TypeLine()
     {
         isTyping = true;
         dialogueText.SetText("");
 
-        foreach(char letter in dialogueData.dialogueLines[dialogueIndex].ToCharArray())
+        foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(dialogueData.typingSpeed);
         }
 
         isTyping = false;
-        if (dialogueData.autoProgressLines.Length > dialogueIndex && dialogueData.autoProgressLines[dialogueIndex])
+
+        if (dialogueData.autoProgressLines.Length > dialogueIndex &&
+            dialogueData.autoProgressLines[dialogueIndex])
         {
             yield return new WaitForSeconds(dialogueData.autoProgressDelay);
-            DisplayNextLine();
+            NextLine();
         }
+
+        if (dialogueData.voiceSound != null)
         {
-            AudioSource.PlayClipAtPoint(dialogueData.voiceSound, Camera.main.transform.position, 0.5f);
+            AudioSource.PlayClipAtPoint(
+                dialogueData.voiceSound,
+                Camera.main.transform.position,
+                0.5f
+            );
         }
+    }
+
+    public void EndDialogue()
+    {
+        StopAllCoroutines();
+        isDialogueActive = false;
+        dialoguePanel.SetActive(false);
+
+        PauseController.SetDialoguePause(false);
     }
 }
