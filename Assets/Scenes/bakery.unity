@@ -179,10 +179,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   inventoryPanel: {fileID: 2044901747}
   slotPrefab: {fileID: 3871441764888550679, guid: 07f03e87141235d43bb7aa5cd8624dcf, type: 3}
-  itemPrefabs:
-  - {fileID: 9105958834369826422, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
-  - {fileID: 1510532725482238556, guid: 55012427c090f2c4bb9633ef8ad14b09, type: 3}
-  - {fileID: 950364640953780010, guid: 25f75b21503ecde44998436834c7acbe, type: 3}
+  itemPrefabs: []
   slotCount: 21
 --- !u!1 &330357386
 GameObject:
@@ -433,7 +430,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1046912241
-  m_SortingLayer: 7
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
@@ -2432,10 +2429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d1eeea9178b8654283fc33c56db75dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  itemPrefabs:
-  - {fileID: 350955920360360387, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
-  - {fileID: 8624492550192070815, guid: 25f75b21503ecde44998436834c7acbe, type: 3}
-  - {fileID: 7959681736863872489, guid: 55012427c090f2c4bb9633ef8ad14b09, type: 3}
+  itemPrefabs: []
 --- !u!1 &1192161526
 GameObject:
   m_ObjectHideFlags: 0
@@ -8735,7 +8729,7 @@ TilemapRenderer:
   m_LightmapParameters: {fileID: 0}
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: -1801451239
-  m_SortingLayer: 6
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_MaskInteraction: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
