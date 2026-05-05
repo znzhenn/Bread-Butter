@@ -180,9 +180,9 @@ MonoBehaviour:
   inventoryPanel: {fileID: 2044901747}
   slotPrefab: {fileID: 3871441764888550679, guid: 07f03e87141235d43bb7aa5cd8624dcf, type: 3}
   itemPrefabs:
+  - {fileID: 9105958834369826422, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
   - {fileID: 1510532725482238556, guid: 55012427c090f2c4bb9633ef8ad14b09, type: 3}
   - {fileID: 950364640953780010, guid: 25f75b21503ecde44998436834c7acbe, type: 3}
-  - {fileID: 9105958834369826422, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
   slotCount: 21
 --- !u!1 &330357386
 GameObject:
