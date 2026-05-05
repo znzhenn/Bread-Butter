@@ -17,27 +17,6 @@ public class InventoryController : MonoBehaviour
     {
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
 
-        // for(int i = 0; i< slotCount; i++)
-        // {
-        //     Instantiate(slotPrefab, inventoryPanel.transform);
-        // }
-
-        // //preload if it already exists
-        // string savePath = System.IO.Path.Combine(Application.persistentDataPath, "saveData.json");
-        // if(System.IO.File.Exists(savePath))
-        // {
-        //    Debug.Log("No Save found --> preloading test");
-        //    for(int i = 0; i <slotCount; i++)
-        //     {
-        //         if(i< itemPrefabs.Length)
-        //         {
-        //             Slot slot = inventoryPanel.transform.GetChild(i).GetComponent<Slot>();
-        //             GameObject item = Instantiate(itemPrefabs[i], slot.transform);
-        //             item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-        //             slot.currentItem = item;
-        //         }
-        //     }
-        // }
         for(int i = 0; i <slotCount; i++)
         {
             Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
@@ -87,10 +66,10 @@ public class InventoryController : MonoBehaviour
 
     public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
     {
-        foreach(Transform child in inventoryPanel.transform)
-        {
-            Destroy(child.gameObject);
-        }
+        // foreach(Transform child in inventoryPanel.transform)
+        // {
+        //     Destroy(child.gameObject);
+        // }
 
         for(int i = 0; i <slotCount; i++)
         {
