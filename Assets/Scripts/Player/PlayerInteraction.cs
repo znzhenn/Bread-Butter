@@ -5,9 +5,9 @@ public class PlayerInteraction : MonoBehaviour
 {
     public float interactRange = 2f;
 
-    public void OnInteract(InputValue value)
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!value.isPressed) return;
+        if (!context.performed) return;
 
         Debug.Log("Interact pressed!");
         TryInteract();
@@ -28,7 +28,7 @@ public class PlayerInteraction : MonoBehaviour
 
             if (interactable != null)
             {
-                interactable.Interact();
+                interactable.Interact(); // ✅ FIXED
                 return;
             }
         }
