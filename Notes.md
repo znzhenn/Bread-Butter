@@ -160,14 +160,9 @@ This file tracks progress, milestones, changes in development, as well as an add
 - [Everything you need to know to SAVE and LOAD your game in Unity](https://www.youtube.com/watch?v=1mf730eb5Wo)
 - The importance of System.Serializable
 - Inventory has slots, and can hold items
-- 
 
-
-
-
-
-## Week 14 ()
-- changes
+## Week 14
+- fun fact the inventory system was never broken and i wasted too many hours of my life on it
 - 
 - 
 - 
