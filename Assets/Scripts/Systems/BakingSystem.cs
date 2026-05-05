@@ -28,6 +28,6 @@ public class BakingSystem : MonoBehaviour
         Bread bread = breadsForSale[0];
         breadsForSale.RemoveAt(0);
 
-        return bread.recipe.resultItem;
+        return bread.recipe.resultPrefab.GetComponent<Item>().data;
     }
 }

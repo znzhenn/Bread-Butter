@@ -13,5 +13,7 @@ MonoBehaviour:
   m_Name: BannanaBreadRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Bannana Bread
-  difficulty: 1
-  baseValue: 0
+  ingredientNames: []
+  resultPrefab: {fileID: 0}
+  baseValue: 15
+  proofTime: 5
