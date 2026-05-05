@@ -15,19 +15,22 @@ public class InventoryController : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        
         itemDictionary = FindFirstObjectByType<ItemDictionary>();
-
+        
         for(int i = 0; i <slotCount; i++)
         {
             Slot slot = Instantiate(slotPrefab, inventoryPanel.transform).GetComponent<Slot>();
+            Debug.Log("Slot position in Start: " + slot.transform.position);
             if(i < itemPrefabs.Length)
             {
                 GameObject item = Instantiate(itemPrefabs[i], slot.transform);
                 // centers the item in the slot
                 item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                 slot.currentItem = item;
-            }
-        }
+            } 
+            
+        } 
         
     }
     
@@ -41,6 +44,7 @@ public class InventoryController : MonoBehaviour
                 GameObject item = Instantiate(itemPrefab, slotTransform);
                 item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                 slot.currentItem = item;
+
                 return true; // item added
             }
         }
@@ -66,15 +70,6 @@ public class InventoryController : MonoBehaviour
 
     public void SetInventoryItems(List<InventorySaveData> inventorySaveData)
     {
-        // foreach(Transform child in inventoryPanel.transform)
-        // {
-        //     Destroy(child.gameObject);
-        // }
-
-        // for(int i = 0; i <slotCount; i++)
-        // {
-        //     Instantiate(slotPrefab, inventoryPanel.transform);
-        // }
 
         foreach(InventorySaveData data in inventorySaveData)
         {
@@ -87,6 +82,7 @@ public class InventoryController : MonoBehaviour
                     GameObject item = Instantiate(itemPrefab, slot.transform);
                     item.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
                     slot.currentItem = item;
+
                 }
             }
         }
