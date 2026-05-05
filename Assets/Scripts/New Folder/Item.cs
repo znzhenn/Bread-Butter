@@ -6,6 +6,7 @@ public class Item : MonoBehaviour
 {
     public int ID;
     public string Name;
+    public ItemData data;
 
     public virtual void pickUp()
     {
