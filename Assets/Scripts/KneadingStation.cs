@@ -17,13 +17,13 @@ public class KneadingStation : MonoBehaviour, Interactable
             return;
         }
 
-        if (KneadingRecipeUI.Instance == null)
+        if (KneadingRecipeMenu.Instance == null)
         {
-            Debug.LogError("No KneadingRecipeUI found in scene.");
+            Debug.LogError("No KneadingRecipeMenu found in scene.");
             return;
         }
 
-        KneadingRecipeUI.Instance.Open(this, recipes);
+        KneadingRecipeMenu.Instance.Open(this, recipes);
     }
 
     public bool CanInteract()

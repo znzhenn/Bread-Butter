@@ -3,9 +3,9 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class KneadingRecipeUI : MonoBehaviour
+public class KneadingRecipeMenu : MonoBehaviour
 {
-    public static KneadingRecipeUI Instance { get; private set; }
+    public static KneadingRecipeMenu Instance { get; private set; }
 
     [Header("UI")]
     public GameObject menuPanel;
@@ -17,14 +17,14 @@ public class KneadingRecipeUI : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        gameObject.SetActive(false);
+        menuPanel.SetActive(false);
     }
 
     public void Open(KneadingStation station, List<Recipe> recipes)
     {
         currentStation = station;
 
-        gameObject.SetActive(true);
+        menuPanel.SetActive(true);
 
         ClearButtons();
 
@@ -52,7 +52,7 @@ public class KneadingRecipeUI : MonoBehaviour
 
         currentStation = null;
 
-        gameObject.SetActive(false);
+        menuPanel.SetActive(false);
 
         PauseController.SetMenuPause(false);
     }
