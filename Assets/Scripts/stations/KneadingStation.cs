@@ -94,9 +94,9 @@ public class KneadingStation : MonoBehaviour, Interactable
         Debug.Log("Proofing...");
         yield return new WaitForSeconds(recipe.proofTime);
 
-        GameObject result = Instantiate(recipe.resultItem.prefab, transform.position, Quaternion.identity);
+        GameObject dough = Instantiate(recipe.doughItem.prefab, transform.position, Quaternion.identity);
 
-        BakingItem bakingItem = result.GetComponent<BakingItem>();
+        BakingItem bakingItem = dough.GetComponent<BakingItem>();
         if (bakingItem != null)
         {
             bakingItem.recipe = recipe;

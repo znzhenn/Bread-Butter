@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class KneadingRecipeMenu : MonoBehaviour
 {
@@ -62,6 +63,14 @@ public class KneadingRecipeMenu : MonoBehaviour
         foreach (Transform child in recipeButtonContainer)
         {
             Destroy(child.gameObject);
+        }
+    }
+    private void Update()
+    {
+        if(menuPanel.activeSelf &&
+        Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Close();
         }
     }
 }

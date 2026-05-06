@@ -6,6 +6,9 @@ public class Recipe : ScriptableObject
 {
     public string recipeName;
 
+    [Header("Intermediate")]
+    public ItemData doughItem;
+
     [Header("Ingredients")]
     public List<ItemData> ingredients;
 

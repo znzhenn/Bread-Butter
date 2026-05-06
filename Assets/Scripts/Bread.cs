@@ -3,6 +3,8 @@ public class Bread
     public Recipe recipe;
     public float quality;
     public float breadValue;
+    public ItemData breadItem;
+
 
     public Bread(Recipe recipe, float quality)
     {
