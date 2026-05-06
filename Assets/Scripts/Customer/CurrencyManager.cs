@@ -1,38 +1,13 @@
 using UnityEngine;
-using TMPro;
 
 public class CurrencyManager : MonoBehaviour
 {
-    public static CurrencyManager Instance;
-
-    public int money = 0;
-
-    public TMP_Text moneyText;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-
-    private void Start()
-    {
-        UpdateUI();
-    }
+    public int currentMoney;
 
     public void AddMoney(int amount)
     {
-        money += amount;
+        currentMoney += amount;
 
-        UpdateUI();
-
-        Debug.Log("Money: " + money);
-    }
-
-    private void UpdateUI()
-    {
-        if(moneyText != null)
-        {
-            moneyText.text = "$" + money;
-        }
+        Debug.Log("Money: " + currentMoney);
     }
 }

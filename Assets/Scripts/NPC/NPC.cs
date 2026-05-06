@@ -6,23 +6,23 @@ public class NPC : MonoBehaviour, Interactable
 {
     [Header("Dialogue")]
     public NPCDialogue dialogueData;
+
     public GameObject dialoguePanel;
-    public TMPro.TMP_Text dialogueText, nameText;
+
+    public TMPro.TMP_Text dialogueText;
+    public TMPro.TMP_Text nameText;
+
     public Image portraitImage;
 
-    [Header("Customer Settings")]
-    public bool isCustomer = false;
-    public Recipe requestedRecipe;
+    [Header("Customer")]
+    public bool isCustomer;
+
+    public Recipe requestedBread;
 
     private int dialogueIndex;
-    private bool isTyping, isDialogueActive;
 
-    private BakingSystem bakingSystem;
-
-    void Start()
-    {
-        bakingSystem = FindFirstObjectByType<BakingSystem>();
-    }
+    private bool isTyping;
+    private bool isDialogueActive;
 
     public bool CanInteract()
     {
@@ -31,8 +31,26 @@ public class NPC : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        if (dialogueData == null || (PauseController.IsGamePaused && !isDialogueActive))
+        if (isCustomer)
+        {
+            if (isDialogueActive)
+            {
+                NextLine();
+            }
+            else
+            {
+                TryPurchaseBread();
+            }
+
             return;
+        }
+
+        if (dialogueData == null ||
+            (PauseController.IsGamePaused &&
+             !isDialogueActive))
+        {
+            return;
+        }
 
         if (isDialogueActive)
         {
@@ -40,24 +58,80 @@ public class NPC : MonoBehaviour, Interactable
         }
         else
         {
-            if (isCustomer)
-            {
-                StartCustomerDialogue();
-            }
-            else
-            {
-                StartDialogue();
-            }
+            StartDialogue();
         }
+    }
+
+    void TryPurchaseBread()
+    {
+        BakingSystem bakingSystem =
+            FindFirstObjectByType<BakingSystem>();
+
+        if (bakingSystem == null)
+        {
+            Debug.LogError("No BakingSystem found!");
+            return;
+        }
+
+        Bread breadToSell =
+            bakingSystem.breadsForSale.Find(
+                bread => bread.recipe == requestedBread
+            );
+
+        if (breadToSell != null)
+        {
+            bakingSystem.breadsForSale.Remove(breadToSell);
+
+            CurrencyManager currency =
+                FindFirstObjectByType<CurrencyManager>();
+
+            if (currency != null)
+            {
+                currency.AddMoney(
+                    Mathf.RoundToInt(
+                        breadToSell.breadValue
+                    )
+                );
+            }
+
+            dialogueData.dialogueLines =
+                new string[]
+                {
+                    "Thank you for the bread!"
+                };
+
+            Debug.Log(
+                "Customer bought " +
+                breadToSell.recipe.recipeName
+            );
+        }
+        else
+        {
+            dialogueData.dialogueLines =
+                new string[]
+                {
+                    "I'm still waiting for my order..."
+                };
+
+            Debug.Log(
+                "Customer could not find requested bread."
+            );
+        }
+
+        StartDialogue();
     }
 
     void StartDialogue()
     {
         isDialogueActive = true;
+
         dialogueIndex = 0;
 
         nameText.SetText(dialogueData.npcName);
-        portraitImage.sprite = dialogueData.npcPortrait;
+
+        portraitImage.sprite =
+            dialogueData.npcPortrait;
+
         dialoguePanel.SetActive(true);
 
         PauseController.SetDialoguePause(true);
@@ -65,85 +139,20 @@ public class NPC : MonoBehaviour, Interactable
         StartCoroutine(TypeLine());
     }
 
-    void StartCustomerDialogue()
-    {
-        isDialogueActive = true;
-
-        nameText.SetText(dialogueData.npcName);
-        portraitImage.sprite = dialogueData.npcPortrait;
-        dialoguePanel.SetActive(true);
-
-        PauseController.SetDialoguePause(true);
-
-        TrySellBread();
-    }
-
-    void TrySellBread()
-    {
-        if (requestedRecipe == null)
-        {
-            dialogueText.SetText("I don't know what I want yet.");
-            return;
-        }
-
-        if (bakingSystem == null)
-        {
-            Debug.LogError("No BakingSystem found in scene.");
-            dialogueText.SetText("Something went wrong with the bakery stock.");
-            return;
-        }
-
-        Bread breadToSell = bakingSystem.breadsForSale.Find(
-            bread => bread.recipe == requestedRecipe
-        );
-
-        if (breadToSell != null)
-        {
-            bakingSystem.breadsForSale.Remove(breadToSell);
-
-            int saleAmount = Mathf.RoundToInt(breadToSell.breadValue);
-
-            CurrencyManager currency = FindFirstObjectByType<CurrencyManager>();
-
-            if (currency != null)
-            {
-                currency.AddMoney(saleAmount);
-            }
-            else
-            {
-                Debug.LogError("No CurrencyManager found in scene.");
-            }
-
-            dialogueText.SetText(
-                "Thank you! This " + requestedRecipe.recipeName +
-                " looks delicious. Here's " + saleAmount + " coins!"
-            );
-
-            Debug.Log("Sold " + requestedRecipe.recipeName + " for " + saleAmount + " coins.");
-        }
-        else
-        {
-            dialogueText.SetText(
-                "Hi! I'd like a " + requestedRecipe.recipeName + ", please."
-            );
-        }
-    }
-
     void NextLine()
     {
-        if (isCustomer)
-        {
-            EndDialogue();
-            return;
-        }
-
         if (isTyping)
         {
             StopAllCoroutines();
-            dialogueText.SetText(dialogueData.dialogueLines[dialogueIndex]);
+
+            dialogueText.SetText(
+                dialogueData.dialogueLines[dialogueIndex]
+            );
+
             isTyping = false;
         }
-        else if (++dialogueIndex < dialogueData.dialogueLines.Length)
+        else if (++dialogueIndex <
+                 dialogueData.dialogueLines.Length)
         {
             StartCoroutine(TypeLine());
         }
@@ -156,20 +165,29 @@ public class NPC : MonoBehaviour, Interactable
     IEnumerator TypeLine()
     {
         isTyping = true;
+
         dialogueText.SetText("");
 
-        foreach (char letter in dialogueData.dialogueLines[dialogueIndex])
+        foreach (char letter in
+                 dialogueData.dialogueLines[dialogueIndex])
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(dialogueData.typingSpeed);
+
+            yield return new WaitForSeconds(
+                dialogueData.typingSpeed
+            );
         }
 
         isTyping = false;
 
-        if (dialogueData.autoProgressLines.Length > dialogueIndex &&
+        if (dialogueData.autoProgressLines.Length >
+            dialogueIndex &&
             dialogueData.autoProgressLines[dialogueIndex])
         {
-            yield return new WaitForSeconds(dialogueData.autoProgressDelay);
+            yield return new WaitForSeconds(
+                dialogueData.autoProgressDelay
+            );
+
             NextLine();
         }
 
@@ -186,7 +204,9 @@ public class NPC : MonoBehaviour, Interactable
     public void EndDialogue()
     {
         StopAllCoroutines();
+
         isDialogueActive = false;
+
         dialoguePanel.SetActive(false);
 
         PauseController.SetDialoguePause(false);

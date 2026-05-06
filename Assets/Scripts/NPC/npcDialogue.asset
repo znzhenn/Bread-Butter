@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7e783e1a3fc5af04b8aac9108ca8b336, type: 3}
-  m_Name: blondeDialogue
+  m_Name: npcDialogue
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   npcName: Goldie
   npcPortrait: {fileID: -6251682230944352461, guid: 9fc5d6a43aa83eb429f6b99f0b96c44f, type: 3}
   dialogueLines:
   - Hello there!
-  - Who are you?
-  autoProgressLines: 0101
+  - Welcome to the bakery!
+  - I would like some bread
+  autoProgressLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
   voiceSound: {fileID: 0}

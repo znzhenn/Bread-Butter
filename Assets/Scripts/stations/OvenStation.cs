@@ -10,7 +10,10 @@ public class OvenStation : MonoBehaviour, Interactable
     public void Interact()
     {
         if (isBaking)
+        {
+            Debug.Log("Oven is already baking.");
             return;
+        }
 
         Collider2D[] hits =
             Physics2D.OverlapCircleAll(
@@ -23,9 +26,12 @@ public class OvenStation : MonoBehaviour, Interactable
             Item item = hit.GetComponent<Item>();
 
             if (item != null &&
-                item.data.itemName.Contains("Dough"))
+                item.GetComponent<BakingItem>() != null)
             {
+                Debug.Log("Found dough!");
+
                 StartCoroutine(Bake(item));
+
                 return;
             }
         }
@@ -50,6 +56,7 @@ public class OvenStation : MonoBehaviour, Interactable
             Debug.LogError("No BakingItem on dough!");
 
             isBaking = false;
+
             yield break;
         }
 
@@ -58,8 +65,6 @@ public class OvenStation : MonoBehaviour, Interactable
         Debug.Log("Baking " + recipe.recipeName);
 
         yield return new WaitForSeconds(recipe.bakeTime);
-
-        Destroy(doughItem.gameObject);
 
         float quality = Random.Range(0.5f, 1f);
 
@@ -81,6 +86,8 @@ public class OvenStation : MonoBehaviour, Interactable
         {
             Debug.LogError("No BakingSystem found!");
         }
+
+        Destroy(doughItem.gameObject);
 
         isBaking = false;
     }

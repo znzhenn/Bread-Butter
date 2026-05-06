@@ -18,21 +18,21 @@ public class BakingSystem : MonoBehaviour
         );
     }
 
-    public void Tick(float dt)
-    {
-
-    }
-
     public void BakeBread(Recipe recipe)
     {
-        float quality = Random.Range(0.5f, 1f);
+        float quality =
+            Random.Range(0.5f, 1f);
 
-        Bread bread = new Bread(recipe, quality);
+        Bread bread =
+            new Bread(recipe, quality);
 
         breadsForSale.Add(bread);
 
         Debug.Log(
-            $"Baked {recipe.recipeName} | Value: {bread.breadValue}"
+            "Baked " +
+            recipe.recipeName +
+            " | Value: " +
+            bread.breadValue
         );
     }
 
