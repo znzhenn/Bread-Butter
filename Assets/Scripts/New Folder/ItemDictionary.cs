@@ -10,18 +10,21 @@ public class ItemDictionary : MonoBehaviour
     private void Awake()
     {
         itemDictionary = new  Dictionary<int, GameObject>();
+        Debug.Log("Item prefab count: " + itemPrefabs.Count);
 
-        for (int i = 0; i < itemPrefabs.Count; i++)
-        {
-            if(itemPrefabs[i] != null)
-            {
-                itemPrefabs[i].ID = i + 1;
-            }
-        }
+        // for (int i = 0; i < itemPrefabs.Count; i++)
+        // {
+        //     if(itemPrefabs[i] != null)
+        //     {
+        //         itemPrefabs[i].ID = i + 1;
+        //     }
+        // }
         
         foreach(Item item in itemPrefabs)
         {
             itemDictionary[item.ID] = item.gameObject;
+
+            Debug.Log("Added item ID: " + item.ID + " Name: " + item.name);
         }
     }
 

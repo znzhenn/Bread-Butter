@@ -31,41 +31,65 @@ public class ItemDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, I
         canvasGroup.blocksRaycasts = true;
         canvasGroup.alpha = 1f;
 
-        Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
-        if(dropSlot == null)
-        {
-            GameObject item = eventData.pointerEnter;
-            if(item != null)
-            {
-                dropSlot = item.GetComponentInParent<Slot>();
-            }
-        }
         Slot originalSlot = originalParent.GetComponent<Slot>();
 
-        if(dropSlot != null)
-        {
-            if(dropSlot.currentItem != null)
-            {
-                // swap
-                dropSlot.currentItem.transform.SetParent(originalSlot.transform);
-                originalSlot.currentItem = dropSlot.currentItem;
-                dropSlot.currentItem.GetComponent<RectTransform>().anchoredPosition = Vector2.zero;
-            }
-            else
-            {
-                originalSlot.currentItem = null;
-            }
+        Slot dropSlot = eventData.pointerEnter?.GetComponent<Slot>();
 
-            transform.SetParent(dropSlot.transform);
-            dropSlot.currentItem = gameObject;
+        if(dropSlot == null && eventData.pointerEnter != null)
+        {
+            dropSlot = eventData.pointerEnter.GetComponentInParent<Slot>();
+        }
+
+        // invalid drop → return
+        if(dropSlot == null)
+        {
+            transform.SetParent(originalParent);
+
+            RectTransform rt = GetComponent<RectTransform>();
+            rt.localPosition = Vector3.zero;
+            rt.anchoredPosition = Vector2.zero;
+
+            return;
+        }
+
+        // SAME SLOT
+        if(dropSlot == originalSlot)
+        {
+            transform.SetParent(originalSlot.transform);
+
+            RectTransform rt = GetComponent<RectTransform>();
+            rt.localPosition = Vector3.zero;
+            rt.anchoredPosition = Vector2.zero;
+
+            return;
+        }
+
+        GameObject draggedItem = gameObject;
+        GameObject targetItem = dropSlot.currentItem;
+
+        // swap target item back into original slot
+        if(targetItem != null)
+        {
+            targetItem.transform.SetParent(originalSlot.transform);
+
+            RectTransform targetRT = targetItem.GetComponent<RectTransform>();
+            targetRT.localPosition = Vector3.zero;
+            targetRT.anchoredPosition = Vector2.zero;
+
+            originalSlot.currentItem = targetItem;
         }
         else
         {
-            transform.SetParent(originalParent);
+            originalSlot.currentItem = null;
         }
 
-        GetComponent<RectTransform>().anchoredPosition = Vector2.zero; 
+        // move dragged item into new slot
+        transform.SetParent(dropSlot.transform);
 
-        
+        RectTransform draggedRT = GetComponent<RectTransform>();
+        draggedRT.localPosition = Vector3.zero;
+        draggedRT.anchoredPosition = Vector2.zero;
+
+        dropSlot.currentItem = draggedItem;
     }
 }

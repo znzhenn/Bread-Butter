@@ -8,13 +8,13 @@ public class SaveController : MonoBehaviour
     private string saveLocation;
     private InventoryController inventoryController;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    IEnumerator Start()
     {
         //Debug.Log(Application.persistentDataPath);
         saveLocation = Path.Combine(Application.persistentDataPath, "saveData.json");
         inventoryController = FindFirstObjectByType<InventoryController>();
 
-        //yield return null;
+        yield return null;
 
         LoadGame();
 
