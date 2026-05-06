@@ -285,6 +285,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4174245077177181432, guid: c6826d0a1af9f7e4ab783267da0797b2, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
     - target: {fileID: 8371571664263530518, guid: c6826d0a1af9f7e4ab783267da0797b2, type: 3}
       propertyPath: m_Name
       value: Flour Variant
@@ -2107,6 +2111,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1201724469221366786, guid: 4f133ddecd06f1d49ae8344a82957028, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 6903545a6fffe4f4a83cf740b0f89e8a, type: 2}
     - target: {fileID: 1775987791198998429, guid: 4f133ddecd06f1d49ae8344a82957028, type: 3}
       propertyPath: m_Radius
       value: 0.45
@@ -2144,6 +2152,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 950313394}
     m_Modifications:
+    - target: {fileID: 805342499425471355, guid: 1abdf1508b144654185772b820c62572, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 39e2bb56b95379345a65756a6173a6a3, type: 2}
     - target: {fileID: 1624449820624256390, guid: 1abdf1508b144654185772b820c62572, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -2548,7 +2560,7 @@ GameObject:
   - component: {fileID: 1013507321}
   - component: {fileID: 1013507323}
   m_Layer: 5
-  m_Name: RecipeTab
+  m_Name: MapTab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2883,7 +2895,6 @@ GameObject:
   - component: {fileID: 1074368418}
   - component: {fileID: 1074368424}
   - component: {fileID: 1074368425}
-  - component: {fileID: 1074368426}
   - component: {fileID: 1074368427}
   m_Layer: 0
   m_Name: Player Character
@@ -2935,13 +2946,13 @@ MonoBehaviour:
     m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1074368417}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 1074368427}
+        m_TargetAssemblyTypeName: PlayerInteraction, Assembly-CSharp
+        m_MethodName: OnInteract
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3114,6 +3125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   moveSpeed: 3
+  facingDirection: {x: 0, y: -1}
 --- !u!95 &1074368425
 Animator:
   serializedVersion: 7
@@ -3136,18 +3148,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1074368426
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1074368417}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58c59c1b64ad82441a3b897f11952262, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &1074368427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3244,7 +3244,7 @@ GameObject:
   - component: {fileID: 1192161529}
   - component: {fileID: 1192161528}
   m_Layer: 5
-  m_Name: RecipePage
+  m_Name: MapPage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5774,6 +5774,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 950313394}
     m_Modifications:
+    - target: {fileID: 627351601824194556, guid: b38336b60379bb9408a6255801dfbc75, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 58ea4fe986fbdf049abaca505999112c, type: 2}
     - target: {fileID: 1518520977385220353, guid: b38336b60379bb9408a6255801dfbc75, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7733,6 +7737,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.15
       objectReference: {fileID: 0}
+    - target: {fileID: 7669847851688063072, guid: 420a30563ab7ce644a1f0d8247e80ba7, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dd4214fc2331cc4693d63fb78b51f1e, type: 2}
     - target: {fileID: 8635326563085076125, guid: 420a30563ab7ce644a1f0d8247e80ba7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -7991,7 +7999,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: RECIPES
+  m_text: MAP
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
   m_sharedMaterial: {fileID: 5166580554649193542, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
@@ -8291,7 +8299,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Recipes
+  m_text: Maps
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
   m_sharedMaterial: {fileID: 5166580554649193542, guid: 7d5b979c65ae6974b8be24f542629759, type: 2}
@@ -9230,6 +9238,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9165047138092051594, guid: 733c0502fc9a3af4ba7a00361830b532, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10675,6 +10687,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8283833029661803051, guid: 48c9003966581684f9fbbeeaace38af5, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 19cba4b796a741d4e85b44648b454bb4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -10768,6 +10784,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3870514911400770553, guid: 62c3da03ebac20b418844882d84fcf97, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 4463a300133a9b74f8be41901fdbb8c8, type: 2}
     - target: {fileID: 8680403598394513175, guid: 62c3da03ebac20b418844882d84fcf97, type: 3}
       propertyPath: m_Name
       value: Butter
@@ -10865,6 +10885,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4130475927337960468, guid: 543ea4c70d7cc1244a37784537bd34b5, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: 7fa7071a0345276468b82d38bff94b23, type: 2}
     - target: {fileID: 8399859964599789818, guid: 543ea4c70d7cc1244a37784537bd34b5, type: 3}
       propertyPath: m_Name
       value: Whisk
@@ -10886,6 +10910,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Yeast
       objectReference: {fileID: 0}
+    - target: {fileID: 7362328582882982589, guid: 77e2e7356b7706b46afe999daf3e7ece, type: 3}
+      propertyPath: itemData
+      value: 
+      objectReference: {fileID: 11400000, guid: c98acee10032c42448209a4667fad16f, type: 2}
     - target: {fileID: 8901977003150232640, guid: 77e2e7356b7706b46afe999daf3e7ece, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
