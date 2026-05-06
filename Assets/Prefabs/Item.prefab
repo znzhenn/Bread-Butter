@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 350955920360360387}
   - component: {fileID: 2248201165025455385}
   - component: {fileID: 4293625890560684295}
+  - component: {fileID: 3719679218335310488}
   m_Layer: 5
   m_Name: Item
   m_TagString: Item
@@ -116,8 +117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cd214632a5a7d43b49f691c5af6559, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  ID: 1
-  Name: Item
+  data: {fileID: 0}
 --- !u!212 &2248201165025455385
 SpriteRenderer:
   serializedVersion: 2
@@ -213,3 +213,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 0.15
+--- !u!114 &3719679218335310488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9105958834369826422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3fc2333188534f409763630d096b97a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WorldItem
+  itemData: {fileID: 11400000, guid: 45499829705fff949aa95c0f326f5747, type: 2}

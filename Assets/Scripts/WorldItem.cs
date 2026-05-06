@@ -25,6 +25,13 @@ public class WorldItem : MonoBehaviour, Interactable
 
         if(added)
         {
+            Item item = itemData.prefab.GetComponent<Item>();
+
+            if(item != null)
+            {
+                item.PickUp();
+            }
+
             Destroy(gameObject);
         }
     }
