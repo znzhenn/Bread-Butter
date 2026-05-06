@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3af6cdb45d47aa45b2945c4dc15d94f, type: 3}
+  m_Name: WhiskData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  ID: 9
+  itemName: Whisk
+  icon: {fileID: -6174907061535458448, guid: f3f2e408bf83d384b95d09c9060ae3e9, type: 3}
+  prefab: {fileID: 8399859964599789818, guid: 543ea4c70d7cc1244a37784537bd34b5, type: 3}

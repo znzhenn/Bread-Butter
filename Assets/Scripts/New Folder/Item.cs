@@ -1,16 +1,19 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-[RequireComponent(typeof(UnityEngine.UI.Image))]
+// inventory items
+[RequireComponent(typeof(Image))]
 public class Item : MonoBehaviour
 {
-    public int ID;
-    public string Name;
     public ItemData data;
 
-    public virtual void pickUp()
+    public int ID => data.ID;
+    public string Name => data.itemName;
+
+    public virtual void PickUp()
     {
-        Sprite itemIcon = GetComponent<UnityEngine.UI.Image>()?.sprite;
+        Sprite itemIcon = data.icon;
+
         if(ItemPickupUIController.Instance != null)
         {
             ItemPickupUIController.Instance.ShowItemPickup(Name, itemIcon);

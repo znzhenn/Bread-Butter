@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: Name
       value: Butter
       objectReference: {fileID: 0}
+    - target: {fileID: 350955920360360387, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 4463a300133a9b74f8be41901fdbb8c8, type: 2}
     - target: {fileID: 2248201165025455385, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Sprite
       value: 

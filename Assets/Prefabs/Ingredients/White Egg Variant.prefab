@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: Name
       value: Eggs
       objectReference: {fileID: 0}
+    - target: {fileID: 350955920360360387, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: 2dd4214fc2331cc4693d63fb78b51f1e, type: 2}
     - target: {fileID: 2248201165025455385, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Sprite
       value: 

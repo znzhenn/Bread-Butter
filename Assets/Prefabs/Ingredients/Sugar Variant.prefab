@@ -16,6 +16,10 @@ PrefabInstance:
       propertyPath: Name
       value: Sugar
       objectReference: {fileID: 0}
+    - target: {fileID: 350955920360360387, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
+      propertyPath: data
+      value: 
+      objectReference: {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
     - target: {fileID: 2248201165025455385, guid: 7a09b1dcbd9cad94f8adb6c662cb5109, type: 3}
       propertyPath: m_Sprite
       value: 
