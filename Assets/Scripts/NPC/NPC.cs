@@ -8,7 +8,6 @@ public class NPC : MonoBehaviour, Interactable
     public NPCDialogue dialogueData;
 
     public GameObject dialoguePanel;
-
     public TMPro.TMP_Text dialogueText;
     public TMPro.TMP_Text nameText;
 
@@ -16,13 +15,17 @@ public class NPC : MonoBehaviour, Interactable
 
     [Header("Customer")]
     public bool isCustomer;
-
     public Recipe requestedBread;
 
     private int dialogueIndex;
 
     private bool isTyping;
     private bool isDialogueActive;
+
+    private bool hasOrdered = false;
+    private bool hasBeenServed = false;
+
+    private string[] currentLines;
 
     public bool CanInteract()
     {
@@ -33,33 +36,49 @@ public class NPC : MonoBehaviour, Interactable
     {
         if (isCustomer)
         {
-            if (isDialogueActive)
-            {
-                NextLine();
-            }
-            else
-            {
-                TryPurchaseBread();
-            }
-
+            HandleCustomerInteraction();
             return;
         }
 
-        if (dialogueData == null ||
-            (PauseController.IsGamePaused &&
-             !isDialogueActive))
-        {
-            return;
-        }
+        currentLines = dialogueData.orderLines;
 
+        HandleDialogue();
+    }
+
+    void HandleCustomerInteraction()
+    {
         if (isDialogueActive)
         {
             NextLine();
+            return;
         }
-        else
+
+        // First interaction
+        if (!hasOrdered)
         {
+            hasOrdered = true;
+
+            currentLines =
+                dialogueData.orderLines;
+
             StartDialogue();
+
+            return;
         }
+
+        // Try buying bread
+        if (!hasBeenServed)
+        {
+            TryPurchaseBread();
+
+            return;
+        }
+
+        // Already served
+        currentLines =
+            dialogueData.thankYouLines;
+
+        StartDialogue();
     }
 
     void TryPurchaseBread()
@@ -78,9 +97,12 @@ public class NPC : MonoBehaviour, Interactable
                 bread => bread.recipe == requestedBread
             );
 
+        // Customer found requested bread
         if (breadToSell != null)
         {
-            bakingSystem.breadsForSale.Remove(breadToSell);
+            bakingSystem.breadsForSale.Remove(
+                breadToSell
+            );
 
             CurrencyManager currency =
                 FindFirstObjectByType<CurrencyManager>();
@@ -94,11 +116,10 @@ public class NPC : MonoBehaviour, Interactable
                 );
             }
 
-            dialogueData.dialogueLines =
-                new string[]
-                {
-                    "Thank you for the bread!"
-                };
+            hasBeenServed = true;
+
+            currentLines =
+                dialogueData.thankYouLines;
 
             Debug.Log(
                 "Customer bought " +
@@ -107,27 +128,66 @@ public class NPC : MonoBehaviour, Interactable
         }
         else
         {
-            dialogueData.dialogueLines =
-                new string[]
-                {
-                    "I'm still waiting for my order..."
-                };
+            currentLines =
+                dialogueData.waitingLines;
 
             Debug.Log(
-                "Customer could not find requested bread."
+                "Customer is still waiting for bread."
             );
         }
 
         StartDialogue();
     }
 
+    void HandleDialogue()
+    {
+        if (dialogueData == null)
+        {
+            Debug.LogError(
+                name + " has no dialogue data!"
+            );
+
+            return;
+        }
+
+        if (isDialogueActive)
+        {
+            NextLine();
+        }
+        else
+        {
+            StartDialogue();
+        }
+    }
+
     void StartDialogue()
     {
+        if (dialogueData == null)
+        {
+            Debug.LogError(
+                name + " missing dialogueData!"
+            );
+
+            return;
+        }
+
+        if (currentLines == null ||
+            currentLines.Length == 0)
+        {
+            Debug.LogError(
+                name + " has no dialogue lines assigned!"
+            );
+
+            return;
+        }
+
         isDialogueActive = true;
 
         dialogueIndex = 0;
 
-        nameText.SetText(dialogueData.npcName);
+        nameText.SetText(
+            dialogueData.npcName
+        );
 
         portraitImage.sprite =
             dialogueData.npcPortrait;
@@ -146,13 +206,13 @@ public class NPC : MonoBehaviour, Interactable
             StopAllCoroutines();
 
             dialogueText.SetText(
-                dialogueData.dialogueLines[dialogueIndex]
+                currentLines[dialogueIndex]
             );
 
             isTyping = false;
         }
         else if (++dialogueIndex <
-                 dialogueData.dialogueLines.Length)
+                 currentLines.Length)
         {
             StartCoroutine(TypeLine());
         }
@@ -169,7 +229,7 @@ public class NPC : MonoBehaviour, Interactable
         dialogueText.SetText("");
 
         foreach (char letter in
-                 dialogueData.dialogueLines[dialogueIndex])
+                 currentLines[dialogueIndex])
         {
             dialogueText.text += letter;
 

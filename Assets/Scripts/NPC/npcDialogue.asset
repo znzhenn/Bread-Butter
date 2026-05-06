@@ -15,9 +15,9 @@ MonoBehaviour:
   npcName: Goldie
   npcPortrait: {fileID: -6251682230944352461, guid: 9fc5d6a43aa83eb429f6b99f0b96c44f, type: 3}
   dialogueLines:
-  - Hello there!
-  - Welcome to the bakery!
-  - I would like some bread
+  - Hello! Are you the owner of the bakery?
+  - 'Great! I''d like to buy some bread : )'
+  - Can you collect the ingredients to bake me some?
   autoProgressLines: 010101
   autoProgressDelay: 1.5
   typingSpeed: 0.05
