@@ -8,6 +8,8 @@ public class KneadingRecipeMenu : MonoBehaviour
 {
     public static KneadingRecipeMenu Instance { get; private set; }
 
+    public static bool ClosedThisFrame;
+
     [Header("UI")]
     public GameObject menuPanel;
     public Transform recipeButtonContainer;
@@ -18,7 +20,26 @@ public class KneadingRecipeMenu : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        menuPanel.SetActive(false);
+
+        if (menuPanel != null)
+        {
+            menuPanel.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if (menuPanel != null &&
+            menuPanel.activeSelf &&
+            Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            Close();
+        }
+    }
+
+    private void LateUpdate()
+    {
+        ClosedThisFrame = false;
     }
 
     public void Open(KneadingStation station, List<Recipe> recipes)
@@ -31,12 +52,17 @@ public class KneadingRecipeMenu : MonoBehaviour
 
         foreach (Recipe recipe in recipes)
         {
-            GameObject buttonObj = Instantiate(recipeButtonPrefab, recipeButtonContainer);
+            GameObject buttonObj =
+                Instantiate(recipeButtonPrefab, recipeButtonContainer);
 
-            TMP_Text buttonText = buttonObj.GetComponentInChildren<TMP_Text>();
+            TMP_Text buttonText =
+                buttonObj.GetComponentInChildren<TMP_Text>();
+
             buttonText.text = recipe.recipeName;
 
-            Button button = buttonObj.GetComponent<Button>();
+            Button button =
+                buttonObj.GetComponent<Button>();
+
             button.onClick.AddListener(() =>
             {
                 currentStation.CraftRecipe(recipe);
@@ -47,8 +73,15 @@ public class KneadingRecipeMenu : MonoBehaviour
         PauseController.SetMenuPause(true);
     }
 
+    public bool IsOpen()
+    {
+        return menuPanel != null && menuPanel.activeSelf;
+    }
+
     public void Close()
     {
+        ClosedThisFrame = true;
+
         ClearButtons();
 
         currentStation = null;
@@ -63,14 +96,6 @@ public class KneadingRecipeMenu : MonoBehaviour
         foreach (Transform child in recipeButtonContainer)
         {
             Destroy(child.gameObject);
-        }
-    }
-    private void Update()
-    {
-        if(menuPanel.activeSelf &&
-        Keyboard.current.escapeKey.wasPressedThisFrame)
-        {
-            Close();
         }
     }
 }
