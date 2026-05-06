@@ -11,15 +11,35 @@ public class KneadingStation : MonoBehaviour, Interactable
 
     public void Interact()
     {
-        Debug.Log("Kneading station interacted!");
+        if (isProcessing)
+        {
+            Debug.Log("Kneading station is already processing.");
+            return;
+        }
+
+        if (KneadingRecipeUI.Instance == null)
+        {
+            Debug.LogError("No KneadingRecipeUI found in scene.");
+            return;
+        }
+
+        KneadingRecipeUI.Instance.Open(this, recipes);
+    }
+
+    public bool CanInteract()
+    {
+        return !isProcessing;
+    }
+
+    public void CraftRecipe(Recipe recipe)
+    {
         if (isProcessing) return;
 
-        Collider2D[] hits =
-            Physics2D.OverlapCircleAll(transform.position, interactRadius);
+        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRadius);
 
         List<Item> nearbyItems = new List<Item>();
 
-        foreach (var hit in hits)
+        foreach (Collider2D hit in hits)
         {
             Item item = hit.GetComponent<Item>();
 
@@ -29,40 +49,17 @@ public class KneadingStation : MonoBehaviour, Interactable
             }
         }
 
-        Recipe match = FindMatchingRecipe(nearbyItems);
-
-        if (match == null)
+        if (!HasIngredients(recipe, nearbyItems))
         {
-            Debug.Log("No matching recipe.");
+            Debug.Log("Missing ingredients for " + recipe.recipeName);
             return;
         }
 
-        StartCoroutine(Process(match, nearbyItems));
+        StartCoroutine(Process(recipe, nearbyItems));
     }
 
-    public bool CanInteract()
+    private bool HasIngredients(Recipe recipe, List<Item> items)
     {
-        return !isProcessing;
-    }
-
-    private Recipe FindMatchingRecipe(List<Item> items)
-    {
-        foreach (Recipe recipe in recipes)
-        {
-            if (Matches(recipe, items))
-            {
-                return recipe;
-            }
-        }
-
-        return null;
-    }
-
-    private bool Matches(Recipe recipe, List<Item> items)
-    {
-        if (items.Count < recipe.ingredients.Count)
-            return false;
-
         List<Item> temp = new List<Item>(items);
 
         foreach (ItemData needed in recipe.ingredients)
@@ -90,31 +87,22 @@ public class KneadingStation : MonoBehaviour, Interactable
     {
         isProcessing = true;
 
-        Debug.Log("Kneading instantly...");
+        Debug.Log("Crafting recipe: " + recipe.recipeName);
 
         ConsumeIngredients(recipe, items);
 
-        GameObject dough =
-            Instantiate(recipe.resultItem.prefab,
-                        transform.position,
-                        Quaternion.identity);
+        Debug.Log("Proofing...");
+        yield return new WaitForSeconds(recipe.proofTime);
 
-        BakingItem bakingItem = dough.GetComponent<BakingItem>();
+        GameObject result = Instantiate(recipe.resultItem.prefab, transform.position, Quaternion.identity);
 
+        BakingItem bakingItem = result.GetComponent<BakingItem>();
         if (bakingItem != null)
         {
             bakingItem.recipe = recipe;
         }
-        else
-        {
-            Debug.LogError("Dough prefab missing BakingItem!");
-        }
 
-        Debug.Log("Proofing...");
-
-        yield return new WaitForSeconds(recipe.proofTime);
-
-        Debug.Log("Dough finished proofing!");
+        Debug.Log(recipe.recipeName + " finished!");
 
         isProcessing = false;
     }
