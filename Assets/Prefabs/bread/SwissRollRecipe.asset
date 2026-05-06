@@ -13,13 +13,12 @@ MonoBehaviour:
   m_Name: SwissRollRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: SwissRoll
-  ingredientNames:
-  - Flour
-  - Milk
-  - Yeast
-  - Salt
-  - Egg
-  resultPrefab: {fileID: 5316746587692454653, guid: 69cbd780ad96d9d48ac802af4a2d364b, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  - {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
+  - {fileID: 11400000, guid: 2dd4214fc2331cc4693d63fb78b51f1e, type: 2}
+  - {fileID: 11400000, guid: 4463a300133a9b74f8be41901fdbb8c8, type: 2}
+  resultItem: {fileID: 11400000, guid: 130079ff0a18a274a983e2826a4dd503, type: 2}
   baseValue: 52
   proofTime: 30
   bakeTime: 20

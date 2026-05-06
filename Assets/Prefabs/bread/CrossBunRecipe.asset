@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: CrossBunRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: CrossBun
-  ingredientNames:
-  - Flour
-  - Water
-  - Yeast
-  - Sugar
-  resultPrefab: {fileID: 246608804913614238, guid: 8631d2305dd0cd747b41cbe1330d49db, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 39e2bb56b95379345a65756a6173a6a3, type: 2}
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  - {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
+  - {fileID: 11400000, guid: 2dd4214fc2331cc4693d63fb78b51f1e, type: 2}
+  resultItem: {fileID: 11400000, guid: bd5e61e0c918734459261d14a97644bd, type: 2}
   baseValue: 7
   proofTime: 15
   bakeTime: 7

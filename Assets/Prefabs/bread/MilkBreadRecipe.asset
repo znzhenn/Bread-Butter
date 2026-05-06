@@ -13,12 +13,11 @@ MonoBehaviour:
   m_Name: MilkBreadRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: MilkBread
-  ingredientNames:
-  - Flour
-  - Milk
-  - Yeast
-  - Sugar
-  resultPrefab: {fileID: 8539781936639352016, guid: 244aaa043327f7641a3ce96d437f4bf1, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 39e2bb56b95379345a65756a6173a6a3, type: 2}
+  - {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  resultItem: {fileID: 11400000, guid: f9fdd4e153848fe458ff83246d5d492a, type: 2}
   baseValue: 10
   proofTime: 15
   bakeTime: 8

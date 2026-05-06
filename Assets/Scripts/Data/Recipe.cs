@@ -7,10 +7,10 @@ public class Recipe : ScriptableObject
     public string recipeName;
 
     [Header("Ingredients")]
-    public List<string> ingredientNames;
+    public List<ItemData> ingredients;
 
     [Header("Result")]
-    public GameObject resultPrefab;
+    public ItemData resultItem;
 
     [Header("Economy")]
     public float baseValue;

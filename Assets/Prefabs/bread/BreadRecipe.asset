@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: BreadRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Bread
-  ingredientNames:
-  - Flour
-  - Yeast
-  - Sugar
-  resultPrefab: {fileID: 4164682274532411077, guid: c535f0985a25ef14094385123c8aad67, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  - {fileID: 11400000, guid: 58ea4fe986fbdf049abaca505999112c, type: 2}
+  - {fileID: 11400000, guid: 19cba4b796a741d4e85b44648b454bb4, type: 2}
+  - {fileID: 11400000, guid: c98acee10032c42448209a4667fad16f, type: 2}
+  resultItem: {fileID: 11400000, guid: d9db87706c10ae8408b97b25af1fdac7, type: 2}
   baseValue: 5
   proofTime: 5
   bakeTime: 5

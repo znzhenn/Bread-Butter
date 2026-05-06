@@ -10,8 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c3af6cdb45d47aa45b2945c4dc15d94f, type: 3}
-  m_Name: Dough
+  m_Name: SweetBread
   m_EditorClassIdentifier: Assembly-CSharp::ItemData
-  itemName: Dough
-  icon: {fileID: 0}
-  sellPrice: 0
+  ID: 103
+  itemName: Sweet Bread
+  icon: {fileID: 21300000, guid: 083e670370de26d45beb4625684c05a8, type: 3}
+  prefab: {fileID: 649597704676052208, guid: 59183a85d54e7d447b876975e6cfc301, type: 3}

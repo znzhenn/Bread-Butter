@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: SweetBreadRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: SweetBread
-  ingredientNames:
-  - Flour
-  - Water
-  - Yeast
-  - Salt
-  resultPrefab: {fileID: 649597704676052208, guid: 59183a85d54e7d447b876975e6cfc301, type: 3}
+  ingredients:
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  - {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
+  - {fileID: 11400000, guid: c98acee10032c42448209a4667fad16f, type: 2}
+  - {fileID: 11400000, guid: 58ea4fe986fbdf049abaca505999112c, type: 2}
+  resultItem: {fileID: 11400000, guid: 29183a5b1f4b27f41bfec33ac9fd5ca2, type: 2}
   baseValue: 20
   proofTime: 10
   bakeTime: 10
