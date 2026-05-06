@@ -3,22 +3,27 @@ using UnityEngine;
 
 public class OvenStation : MonoBehaviour, Interactable
 {
-    public float bakeTime = 20f;
+    public float interactRadius = 1.5f;
 
     private bool isBaking = false;
 
     public void Interact()
     {
-        if (isBaking) return;
+        if (isBaking)
+            return;
 
         Collider2D[] hits =
-            Physics2D.OverlapCircleAll(transform.position, 1.5f);
+            Physics2D.OverlapCircleAll(
+                transform.position,
+                interactRadius
+            );
 
-        foreach (var hit in hits)
+        foreach (Collider2D hit in hits)
         {
             Item item = hit.GetComponent<Item>();
 
-            if (item != null && item.data.itemName == "Dough")
+            if (item != null &&
+                item.data.itemName.Contains("Dough"))
             {
                 StartCoroutine(Bake(item));
                 return;
@@ -56,10 +61,37 @@ public class OvenStation : MonoBehaviour, Interactable
 
         Destroy(doughItem.gameObject);
 
-        Instantiate(recipe.resultItem.prefab, transform.position, Quaternion.identity);
+        float quality = Random.Range(0.5f, 1f);
 
-        Debug.Log(recipe.recipeName + " finished!");
+        Bread bread = new Bread(recipe, quality);
+
+        BakingSystem bakingSystem =
+            FindFirstObjectByType<BakingSystem>();
+
+        if (bakingSystem != null)
+        {
+            bakingSystem.AddBread(bread);
+
+            Debug.Log(
+                recipe.recipeName +
+                " added to bakery stock!"
+            );
+        }
+        else
+        {
+            Debug.LogError("No BakingSystem found!");
+        }
 
         isBaking = false;
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+
+        Gizmos.DrawWireSphere(
+            transform.position,
+            interactRadius
+        );
     }
 }

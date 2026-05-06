@@ -5,7 +5,6 @@ using UnityEngine;
 public class KneadingStation : MonoBehaviour, Interactable
 {
     public List<Recipe> recipes;
-    public float interactRadius = 1.5f;
 
     private bool isProcessing = false;
 
@@ -33,101 +32,62 @@ public class KneadingStation : MonoBehaviour, Interactable
 
     public void CraftRecipe(Recipe recipe)
     {
-        if (isProcessing) return;
+        if (isProcessing)
+            return;
 
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRadius);
+        InventoryController inventory =
+            FindFirstObjectByType<InventoryController>();
 
-        List<Item> nearbyItems = new List<Item>();
-
-        foreach (Collider2D hit in hits)
+        if (inventory == null)
         {
-            Item item = hit.GetComponent<Item>();
-
-            if (item != null)
-            {
-                nearbyItems.Add(item);
-            }
+            Debug.LogError("No InventoryController found!");
+            return;
         }
 
-        if (!HasIngredients(recipe, nearbyItems))
+        if (!inventory.HasIngredients(recipe.ingredients))
         {
             Debug.Log("Missing ingredients for " + recipe.recipeName);
             return;
         }
 
-        StartCoroutine(Process(recipe, nearbyItems));
+        StartCoroutine(Process(recipe, inventory));
     }
 
-    private bool HasIngredients(Recipe recipe, List<Item> items)
-    {
-        List<Item> temp = new List<Item>(items);
-
-        foreach (ItemData needed in recipe.ingredients)
-        {
-            bool found = false;
-
-            for (int i = 0; i < temp.Count; i++)
-            {
-                if (temp[i].data == needed)
-                {
-                    temp.RemoveAt(i);
-                    found = true;
-                    break;
-                }
-            }
-
-            if (!found)
-                return false;
-        }
-
-        return true;
-    }
-
-    private IEnumerator Process(Recipe recipe, List<Item> items)
+    private IEnumerator Process(
+        Recipe recipe,
+        InventoryController inventory)
     {
         isProcessing = true;
 
         Debug.Log("Crafting recipe: " + recipe.recipeName);
 
-        ConsumeIngredients(recipe, items);
+        inventory.ConsumeIngredients(recipe.ingredients);
 
         Debug.Log("Proofing...");
+
         yield return new WaitForSeconds(recipe.proofTime);
 
-        GameObject dough = Instantiate(recipe.doughItem.prefab, transform.position, Quaternion.identity);
+        GameObject dough =
+            Instantiate(
+                recipe.doughItem.prefab,
+                transform.position,
+                Quaternion.identity
+            );
 
-        BakingItem bakingItem = dough.GetComponent<BakingItem>();
+        BakingItem bakingItem =
+            dough.GetComponent<BakingItem>();
+
         if (bakingItem != null)
         {
             bakingItem.recipe = recipe;
         }
+        else
+        {
+            Debug.LogWarning("Dough missing BakingItem script!");
+        }
 
-        Debug.Log(recipe.recipeName + " finished!");
+        Debug.Log(recipe.recipeName + " dough finished!");
 
         isProcessing = false;
-    }
-
-    private void ConsumeIngredients(Recipe recipe, List<Item> items)
-    {
-        List<Item> temp = new List<Item>(items);
-
-        foreach (ItemData needed in recipe.ingredients)
-        {
-            for (int i = 0; i < temp.Count; i++)
-            {
-                if (temp[i].data == needed)
-                {
-                    Destroy(temp[i].gameObject);
-                    temp.RemoveAt(i);
-                    break;
-                }
-            }
-        }
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, interactRadius);
     }
 }
