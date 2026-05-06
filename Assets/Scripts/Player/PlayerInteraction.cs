@@ -13,27 +13,52 @@ public class PlayerInteraction : MonoBehaviour
         TryInteract();
     }
 
-    void TryInteract()
+ void TryInteract()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRange);
+        Collider2D[] hits =
+            Physics2D.OverlapCircleAll(transform.position, interactRange);
 
-        foreach (Collider2D hit in hits)
+        PlayerController playerController =
+            GetComponent<PlayerController>();
+
+        Vector2 facing = playerController.facingDirection;
+
+        Interactable bestInteractable = null;
+        float bestScore = -Mathf.Infinity;
+
+        foreach(Collider2D hit in hits)
         {
-            if (hit.gameObject == gameObject)
+            if(hit.gameObject == gameObject)
                 continue;
 
-            Debug.Log("Hit: " + hit.name);
+            Interactable interactable =
+                hit.GetComponentInParent<Interactable>();
 
-            Interactable interactable = hit.GetComponentInParent<Interactable>();
+            if(interactable == null)
+                continue;
 
-            if (interactable != null)
+            Vector2 toTarget =
+                (hit.transform.position - transform.position).normalized;
+
+            float score = Vector2.Dot(facing, toTarget);
+
+            Debug.Log(hit.name + " score: " + score);
+
+            if(score > bestScore)
             {
-                interactable.Interact(); // ✅ FIXED
-                return;
+                bestScore = score;
+                bestInteractable = interactable;
             }
         }
 
-        Debug.Log("Nothing interactable found");
+        if(bestInteractable != null)
+        {
+            bestInteractable.Interact();
+        }
+        else
+        {
+            Debug.Log("Nothing interactable found");
+        }
     }
 
     void OnDrawGizmosSelected()

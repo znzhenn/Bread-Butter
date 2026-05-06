@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
 
     private PlayerInputActions inputActions;
     private Animator animator;
+    public Vector2 facingDirection = Vector2.down;
 
     void Awake()
     {
@@ -67,6 +68,12 @@ public class PlayerController : MonoBehaviour
         }
 
         movement = context.ReadValue<Vector2>();
+
+        if(movement != Vector2.zero)
+        {
+            facingDirection = movement.normalized;
+        }
+        
         animator.SetFloat("InputX", movement.x);
         animator.SetFloat("InputY", movement.y);
     }
