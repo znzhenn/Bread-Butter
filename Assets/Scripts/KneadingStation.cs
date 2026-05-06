@@ -11,6 +11,7 @@ public class KneadingStation : MonoBehaviour, Interactable
 
     public void Interact()
     {
+        Debug.Log("Kneading station interacted!");
         if (isProcessing) return;
 
         Collider2D[] hits =

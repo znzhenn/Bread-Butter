@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactRange = 2f;
+    // public int interactionPriority;
 
     public void OnInteract(InputAction.CallbackContext context)
     {
@@ -37,10 +38,16 @@ public class PlayerInteraction : MonoBehaviour
             if(interactable == null)
                 continue;
 
-            Vector2 toTarget =
-                (hit.transform.position - transform.position).normalized;
+            Vector2 toTarget = (hit.transform.position - transform.position).normalized;
 
-            float score = Vector2.Dot(facing, toTarget);
+            float directionScore = Vector2.Dot(facing, toTarget);
+
+            float distance = Vector2.Distance(transform.position, hit.transform.position);
+
+            // closer objects get slightly better score
+            float distanceScore = 1f / (distance + 0.1f);
+
+            float score = directionScore + distanceScore;
 
             Debug.Log(hit.name + " score: " + score);
 
