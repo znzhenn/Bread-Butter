@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BreadRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: Bread
+  doughItem: {fileID: 11400000, guid: 7260d9beeb1ea3942be59357f0ea9eb3, type: 2}
   ingredients:
   - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
   - {fileID: 11400000, guid: 58ea4fe986fbdf049abaca505999112c, type: 2}

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SwissRollRecipe
   m_EditorClassIdentifier: Assembly-CSharp::Recipe
   recipeName: SwissRoll
+  doughItem: {fileID: 11400000, guid: 7260d9beeb1ea3942be59357f0ea9eb3, type: 2}
   ingredients:
   - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
   - {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
