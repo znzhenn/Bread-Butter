@@ -3,40 +3,78 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f;
+    [SerializeField] private float moveSpeed = 5f;
 
     private Rigidbody2D rb;
     private Vector2 movement;
 
     private PlayerInputActions inputActions;
+    private Animator animator;
+    public Vector2 facingDirection = Vector2.down;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         inputActions = new PlayerInputActions();
     }
 
     void OnEnable()
     {
+        if (inputActions == null)
+            inputActions = new PlayerInputActions();
+
         inputActions.Player.Enable();
     }
 
     void OnDisable()
     {
-        inputActions.Player.Disable();
+        if (inputActions != null)
+            inputActions.Player.Disable();
     }
 
     void Update()
     {
-        movement = inputActions.Player.Move.ReadValue<Vector2>();
-        /*if (movement != Vector2.zero)
+        if (PauseController.IsGamePaused)
         {
-            Debug.Log(movement);
-        }*/
+            rb.linearVelocity = Vector2.zero;
+            movement = Vector2.zero;
+            animator.SetBool("isWalking",false);
+            return;
+        } 
+            rb.linearVelocity = movement * moveSpeed;
+            animator.SetBool("isWalking",rb.linearVelocity.magnitude > 0.1f);
+        
     }
 
-    void FixedUpdate()
+    // void FixedUpdate()
+    // {
+    //     if (PauseController.IsGamePaused)
+    //     {
+    //         return;
+    //     }
+
+    //     rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+    // }
+
+    public void Move(InputAction.CallbackContext context)
     {
-        rb.MovePosition(rb.position + movement * moveSpeed * Time.fixedDeltaTime);
+        
+        if (context.canceled)
+        {
+            animator.SetBool("isWalking", false);
+            animator.SetFloat("InputX", movement.x);
+            animator.SetFloat("InputY", movement.y);
+        }
+
+        movement = context.ReadValue<Vector2>();
+
+        if(movement != Vector2.zero)
+        {
+            facingDirection = movement.normalized;
+        }
+        
+        animator.SetFloat("InputX", movement.x);
+        animator.SetFloat("InputY", movement.y);
     }
 }

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631221f618a3a0f4bbee121ebdc33ee2, type: 3}
+  m_Name: CrossBunRecipe
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  recipeName: CrossBun
+  doughItem: {fileID: 11400000, guid: 7260d9beeb1ea3942be59357f0ea9eb3, type: 2}
+  ingredients:
+  - {fileID: 11400000, guid: 39e2bb56b95379345a65756a6173a6a3, type: 2}
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  - {fileID: 11400000, guid: d6fb2ae7737cc164bacba7745b14edc4, type: 2}
+  - {fileID: 11400000, guid: 2dd4214fc2331cc4693d63fb78b51f1e, type: 2}
+  resultItem: {fileID: 11400000, guid: bd5e61e0c918734459261d14a97644bd, type: 2}
+  baseValue: 7
+  proofTime: 15
+  bakeTime: 7

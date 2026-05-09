@@ -1,37 +1,50 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class BakingSystem : MonoBehaviour
 {
-    public GameObject breadPrefab;
-    public List<Bread> breadsForSale = new List<Bread>();
+    public List<Bread> breadsForSale = new();
+
     public int BreadCount => breadsForSale.Count;
-   public void BakeBread(Recipe recipe)
+
+    public void AddBread(Bread bread)
     {
-        float accuracy = RunTimingMinigame(recipe.difficulty);
-        float quality = CalculateQuality(accuracy);
+        breadsForSale.Add(bread);
 
-        GameObject breadObj = Instantiate(breadPrefab);
-        Bread newBread = breadObj.GetComponent<Bread>();
-        newBread.Initialize(recipe, quality);
-
-        breadsForSale.Add(newBread);
-
-        Debug.Log($"Current bread count: {breadsForSale.Count}");
-        Debug.Log($"{recipe.recipeName} has been baked! {quality:F2} star quality, value {newBread.breadValue}");
-    }
-    
-    float RunTimingMinigame(int difficulty)
-    {
-        //temp placeholder
-        return Random.Range(05f, 1.0f);
+        Debug.Log(
+            "Added " +
+            bread.recipe.recipeName +
+            " to bakery stock!"
+        );
     }
 
-    float CalculateQuality(float accuracy)
+    public void BakeBread(Recipe recipe)
     {
-        // exact quality calculations added later
-        return accuracy;
+        float quality =
+            Random.Range(0.5f, 1f);
+
+        Bread bread =
+            new Bread(recipe, quality);
+
+        breadsForSale.Add(bread);
+
+        Debug.Log(
+            "Baked " +
+            recipe.recipeName +
+            " | Value: " +
+            bread.breadValue
+        );
     }
- 
+
+    public ItemData TakeBreadAsItem()
+    {
+        if (breadsForSale.Count == 0)
+            return null;
+
+        Bread bread = breadsForSale[0];
+
+        breadsForSale.RemoveAt(0);
+
+        return bread.recipe.resultItem;
+    }
 }

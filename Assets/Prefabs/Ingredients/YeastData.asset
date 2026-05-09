@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3af6cdb45d47aa45b2945c4dc15d94f, type: 3}
+  m_Name: YeastData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  ID: 11
+  itemName: Yeast
+  icon: {fileID: 953858321933750005, guid: a3867bf6d09b95b40aeea3f075f90d39, type: 3}
+  prefab: {fileID: 3164929979863995987, guid: 77e2e7356b7706b46afe999daf3e7ece, type: 3}

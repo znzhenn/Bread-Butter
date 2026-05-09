@@ -1,9 +1,8 @@
 using UnityEngine;
 
-public class Interactable : MonoBehaviour
+public interface Interactable
 {
-    public virtual void Interact()
-    {
-        Debug.Log("Interacted with " + gameObject.name);
-    }
+    void Interact();
+
+    bool CanInteract();
 }

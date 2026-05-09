@@ -82,9 +82,6 @@ This file tracks progress, milestones, changes in development, as well as an add
 - Money & Purchasing system corrected
 - BreadPrefab created (making the game more scalable)
 - Working on the basic interaction in a simple bakery scene
-- 
-- 
-- 
 - [How to work with multiple scenes in Unity](https://www.youtube.com/watch?v=zObWVOv1GlE)
 - [How to Create a Prefab](https://docs.unity3d.com/6000.3/Documentation/Manual/CreatingPrefabs.html#:~:text=Create%20a%20prefab%20asset,-To%20create%20a&text=See%20in%20Glossary%20and%20configure,new%20variants%20from%20the%20GameObjects.)
 - [Step by Step Unity Guide](https://learn.unity.com)
@@ -94,103 +91,83 @@ This file tracks progress, milestones, changes in development, as well as an add
 - player (white block placeholder) moves freely on the screen
 - static camera centered on player
 - player interaction system is cooked (fixed, it bakes something or at least pretends to rn)
--
-- 
-- 
-- 
+- player spawns in with ingredients, kneeds dough, shapes it, bakes, and successfully puts it in the display
 
 
-## Week 8 ()
-- changes
-- 
-- 
-- 
--
+## Week 8 (3/17 - 3/23)
+- unity project imported to laptop without (Evident) errors
+- [Aseprite - Asset Creation Website](https://www.aseprite.org/)
+- [Piskel - Asset Creation Website](https://www.piskelapp.com/)
+
+
+
+## Week 9 + 10 (3/24 - 4/7)
+- Event bus research
+    - [What is an Event Bus?](https://www.akamai.com/glossary/what-is-an-event-bus)
+    - [What is an event bus, what does it do, and what's it's purpose?](https://medium.com/@syed.abu.hanifah16/what-is-an-event-bus-what-it-does-and-its-purpose-a8a2437b3879)
+    - [Why don't you use an event bus?](https://discussions.unity.com/t/why-dont-you-use-eventbus/940577/2)
+- [Time in Unity](https://docs.unity3d.com/ScriptReference/Time.html)
+- Made the customer spawner actually spawn customers (3 for now)
+    - to fix: customer spawner is starting at the start of day 1, but should be when the shop opens 
+    - to fix: keydy is not buying the whiteloaf?
+- implemented most of the baking steps
+- adjusted beginning inventory numbers
+- added a "shop open" sign to allow switching into the next phase of gameplay
+- full system map created
+![FSM](FSM.png)
+
+
+
+## Week 11 (4/8 - 4/14)
+- Final Assets Selected
+- [Rigidbody in Unity](https://www.youtube.com/watch?v=Y3xkgpCukow)
+- [Top Down Tutorial Series](https://www.youtube.com/watch?v=HAVp6Z8b4xA&list=PLaaFfzxy_80HtVvBnpK_IjSC8_Y9AOhuP)
+- Character created
+- [How to Setup Animator and Animations in Unity 2D](https://www.youtube.com/watch?v=AdQz2wStdLY)
+- [Different ways to annimate chracters](https://www.youtube.com/watch?v=IXwEsV8yXk4)
+- [Unity Manual on Annimations](https://docs.unity3d.com/Manual/class-Transition.html?ampDeviceId=6428826b-cfa3-4df7-a4c2-48a4f6240b62&ampSessionId=1776176819674&ampTimestamp=1776263286564)
+- system design diagram implemented
+![system design diagram](<System Design  Diagram.png>)
+
 **to-do list**
+- build a system diagram of how unity works (how they interact with the unity engine to make the game work)
+- how the game dynamics interact with the game system
+- gameplay + system design
+- my components x unity engine
+- lean into research and system design
 
 
-
-## Week 9 ()
-- changes
-- 
-- 
-- 
-- 
-
+## Week 12 (4/15 - 4/21)
+- 4 Directional Character Implemented, Animations all set-up
+- [Player Movement with Unity Input System](https://youtu.be/DQY62meLVCk?si=EcEAUAlMge8xt1h0)
+- [AutoTile](https://www.youtube.com/watch?v=vck-rSThycA)
+- [Cinemachine Overview in Unity](https://docs.unity3d.com/Packages/com.unity.cinemachine@3.1/manual/index.html)
+- Player movement and camera sorted
+- [Character moving across scenes](https://discussions.unity.com/t/how-do-i-get-my-character-from-one-scene-to-another/934958)
 **to-do list**
+- explain the game logic
+- how are certain things triggered, how do you gain points or progress?
+- work out the game logic and implement it
 
 
 
-## Week 10 ()
-- changes
+
+## Week 13 (4/22 - 4/28)
+- player animations corrected
+- created bakery tilemap (scene 1)
+- player starting position adjusted
+- player menu implemented
+- [Everything you need to know to SAVE and LOAD your game in Unity](https://www.youtube.com/watch?v=1mf730eb5Wo)
+- The importance of System.Serializable
+- Inventory has slots, and can hold items
+
+## Week 14
+- fun fact the inventory system was never broken and i wasted too many hours of my life on it
+- Items load into the game on start, able to be picked up
+- Inventory updates correctly with picked up items
 - 
 - 
-- 
--
-**to-do list**
-
-
-
-
-## Week 11 ()
-- changes
-- 
-- 
-- 
-- 
-**to-do list**
-
-
-
-
-## Week 12 ()
-- changes
-- 
-- 
-- 
--
-**to-do list**
-
-
-
-## Week 13 ()
-- changes
-- 
-- 
-- 
-- **to-do list**
-
-
-
-
-
-## Week 14 ()
-- changes
-- 
-- 
-- 
--
-**to-do list**
-
-
-
-## Week 15 ()
-- changes
-- 
-- 
-- 
-- 
-**to-do list**
-
-
-
-
-## Week 16 ()
-- changes
 - 
 - 
 - 
 -
-**to-do list**
-
-
