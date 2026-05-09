@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::NPCDialogue
   npcName: Goldie
   npcPortrait: {fileID: -6251682230944352461, guid: 9fc5d6a43aa83eb429f6b99f0b96c44f, type: 3}
-  dialogueLines:
-  - Hello! Are you the owner of the bakery?
-  - 'Great! I''d like to buy some bread : )'
-  - Can you collect the ingredients to bake me some?
-  autoProgressLines: 010101
-  autoProgressDelay: 1.5
+  orderLines:
+  - Hello, are you the owner of the bakery? I'd like to order some bread!
+  waitingLines:
+  - Hopefully my bread will be ready soon!
+  thankYouLines:
+  - Thank you! Have a good day!
   typingSpeed: 0.05
+  autoProgressDelay: 1.5
+  autoProgressLines: 010101
   voiceSound: {fileID: 0}
-  voicePitch: 1
