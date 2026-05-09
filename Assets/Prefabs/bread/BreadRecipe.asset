@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 631221f618a3a0f4bbee121ebdc33ee2, type: 3}
+  m_Name: BreadRecipe
+  m_EditorClassIdentifier: Assembly-CSharp::Recipe
+  recipeName: Bread
+  doughItem: {fileID: 11400000, guid: 7260d9beeb1ea3942be59357f0ea9eb3, type: 2}
+  ingredients:
+  - {fileID: 11400000, guid: 34e315ecfe591b74e80a2fe0dd5ef887, type: 2}
+  - {fileID: 11400000, guid: 58ea4fe986fbdf049abaca505999112c, type: 2}
+  - {fileID: 11400000, guid: 19cba4b796a741d4e85b44648b454bb4, type: 2}
+  - {fileID: 11400000, guid: c98acee10032c42448209a4667fad16f, type: 2}
+  resultItem: {fileID: 11400000, guid: d9db87706c10ae8408b97b25af1fdac7, type: 2}
+  baseValue: 5
+  proofTime: 5
+  bakeTime: 5

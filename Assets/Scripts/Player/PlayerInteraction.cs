@@ -4,36 +4,68 @@ using UnityEngine.InputSystem;
 public class PlayerInteraction : MonoBehaviour
 {
     public float interactRange = 2f;
+    // public int interactionPriority;
 
-    public void OnInteract(InputValue value)
+    public void OnInteract(InputAction.CallbackContext context)
     {
-        if (!value.isPressed) return;
+        if (!context.performed) return;
 
         Debug.Log("Interact pressed!");
         TryInteract();
     }
 
-    void TryInteract()
+ void TryInteract()
     {
-        Collider2D[] hits = Physics2D.OverlapCircleAll(transform.position, interactRange);
+        Collider2D[] hits =
+            Physics2D.OverlapCircleAll(transform.position, interactRange);
 
-        foreach (Collider2D hit in hits)
+        PlayerController playerController =
+            GetComponent<PlayerController>();
+
+        Vector2 facing = playerController.facingDirection;
+
+        Interactable bestInteractable = null;
+        float bestScore = -Mathf.Infinity;
+
+        foreach(Collider2D hit in hits)
         {
-            if (hit.gameObject == gameObject)
+            if(hit.gameObject == gameObject)
                 continue;
 
-            Debug.Log("Hit: " + hit.name);
+            Interactable interactable =
+                hit.GetComponentInParent<Interactable>();
 
-            Interactable interactable = hit.GetComponentInParent<Interactable>();
+            if(interactable == null)
+                continue;
 
-            if (interactable != null)
+            Vector2 toTarget = (hit.transform.position - transform.position).normalized;
+
+            float directionScore = Vector2.Dot(facing, toTarget);
+
+            float distance = Vector2.Distance(transform.position, hit.transform.position);
+
+            // closer objects get slightly better score
+            float distanceScore = 1f / (distance + 0.1f);
+
+            float score = directionScore + distanceScore;
+
+            Debug.Log(hit.name + " score: " + score);
+
+            if(score > bestScore)
             {
-                interactable.Interact();
-                return;
+                bestScore = score;
+                bestInteractable = interactable;
             }
         }
 
-        Debug.Log("Nothing interactable found");
+        if(bestInteractable != null)
+        {
+            bestInteractable.Interact();
+        }
+        else
+        {
+            Debug.Log("Nothing interactable found");
+        }
     }
 
     void OnDrawGizmosSelected()

@@ -1,153 +1,38 @@
 using UnityEngine;
-using System.Collections.Generic;
 
 public class CustomerSpawner : MonoBehaviour
 {
-    public CustomerSystem customerSystem;
-    public ShopSystem shopSystem;
-    public OrderSystem orderSystem;
-
-    public List<CustomerProfile> customerProfiles = new();
-
     public GameObject customerPrefab;
+
     public Transform spawnPoint;
 
-    public float spawnInterval = 5f;
-    private float timer;
+    public Recipe[] possibleRequests;
 
-    private int nextCustomerIndex = 0;
+    public float spawnInterval = 10f;
 
-    void Start()
+    private void Start()
     {
-        Debug.Log("CustomerSpawner started.");
-    }
-
-    void Update()
-    {
-        if (GameManager.Instance == null)
-        {
-            Debug.LogWarning("CustomerSpawner cannot find GameManager.");
-            return;
-        }
-
-        if (GameManager.Instance.CurrentState != GameManager.GameState.OpenShop)
-        {
-            return;
-        }
-
-        timer += Time.deltaTime;
-
-        if (timer >= spawnInterval)
-        {
-            SpawnCustomer();
-            timer = 0f;
-        }
+        InvokeRepeating(nameof(SpawnCustomer),
+                        2f,
+                        spawnInterval);
     }
 
     void SpawnCustomer()
     {
-        if (customerProfiles == null || customerProfiles.Count == 0)
-        {
-            Debug.LogWarning("CustomerSpawner has no customer profiles assigned.");
-            return;
-        }
+        GameObject customerObj =
+            Instantiate(customerPrefab,
+                        spawnPoint.position,
+                        Quaternion.identity);
 
-        if (customerPrefab == null)
-        {
-            Debug.LogWarning("CustomerSpawner has no customerPrefab assigned.");
-            return;
-        }
+        Customer customer =
+            customerObj.GetComponent<Customer>();
 
-        if (spawnPoint == null)
-        {
-            Debug.LogWarning("CustomerSpawner has no spawnPoint assigned.");
-            return;
-        }
+        customer.favoriteBread =
+            possibleRequests[
+                Random.Range(0, possibleRequests.Length)
+            ];
 
-        if (customerSystem == null)
-        {
-            Debug.LogWarning("CustomerSpawner has no CustomerSystem assigned.");
-            return;
-        }
-
-        if (shopSystem == null)
-        {
-            Debug.LogWarning("CustomerSpawner has no ShopSystem assigned.");
-            return;
-        }
-
-        if (orderSystem == null)
-        {
-            Debug.LogWarning("CustomerSpawner has no OrderSystem assigned.");
-            return;
-        }
-
-        if (nextCustomerIndex >= customerProfiles.Count)
-        {
-            Debug.Log("All of the customers in town have been to the shop!");
-            return;
-        }
-
-        CustomerProfile profile = customerProfiles[nextCustomerIndex];
-
-        if (profile == null)
-        {
-            Debug.LogWarning("Customer profile at index " + nextCustomerIndex + " is null.");
-            AdvanceIndex();
-            return;
-        }
-
-        if (profile.favoriteBread == null)
-        {
-            Debug.LogWarning(profile.customerName + " doesn't have a favorite type of bread.");
-            AdvanceIndex();
-            return;
-        }
-
-        Customer customer = new Customer(
-            profile.customerName,
-            profile.favoriteBread,
-            profile.mood,
-            profile.isReturning,
-            profile.maxPatience
-        );
-
-        GameObject obj = Instantiate(customerPrefab, spawnPoint.position, Quaternion.identity);
-
-        CustomerBehaviour behaviour = obj.GetComponent<CustomerBehaviour>();
-        if (behaviour == null)
-        {
-            Debug.LogError("Customer prefab is missing CustomerBehaviour.");
-            return;
-        }
-
-        behaviour.Setup(customer);
-        behaviour.OnTryPurchase += shopSystem.TryServeCustomer;
-
-        customerSystem.AddCustomer(customer);
-        orderSystem.PlaceOrder(customer);
-
-        Debug.Log(customer.customerName + " spawned and wants " + customer.favoriteBread.recipeName);
-
-        AdvanceIndex();
-    }
-
-    void AdvanceIndex()
-    {
-        nextCustomerIndex++;
-
-        if (nextCustomerIndex >= customerProfiles.Count)
-        {
-            Debug.Log("All of the customers in town have been to the shop!");
-        }
+        Debug.Log("Customer wants: "
+                  + customer.favoriteBread.recipeName);
     }
 }
-    // void AdvanceIndex()
-    // {
-    //     nextCustomerIndex++;
-
-    //     if (nextCustomerIndex >= customerProfiles.Count)
-    //     {
-    //         nextCustomerIndex = 0;
-    //     }
-    //}

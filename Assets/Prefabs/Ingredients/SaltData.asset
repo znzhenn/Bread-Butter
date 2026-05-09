@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3af6cdb45d47aa45b2945c4dc15d94f, type: 3}
+  m_Name: SaltData
+  m_EditorClassIdentifier: Assembly-CSharp::ItemData
+  ID: 6
+  itemName: Salt
+  icon: {fileID: -1162442978445507191, guid: fc0405691e077d441ac9c78bfe2936ac, type: 3}
+  prefab: {fileID: 4554898007498501829, guid: 48c9003966581684f9fbbeeaace38af5, type: 3}
